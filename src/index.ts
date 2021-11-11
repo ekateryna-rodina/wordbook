@@ -1,10 +1,12 @@
+import config from 'config';
 import express from 'express';
+import connect from './utils/connect';
 
 const app = express();
-const PORT = 3000;
-app.get('/', (req, res) => res.send('hello Kate'));
+const PORT = config.get<number>('port');
+app.get('/', (req, res) => res.send('hello Kate my dear try again'));
 
-app.listen(PORT, () => {
-  /* eslint-disable no-console */
+app.listen(PORT, async () => {
   console.log(`Example app listening on port ${PORT}!`);
+  await connect();
 });

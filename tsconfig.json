@@ -73,5 +73,6 @@
     "src/**/*.spec.ts",
     "src/**/__tests__/*.ts",
     "build"
-  ]
+  ],
+  "include": ["src/**/*"]
 }
