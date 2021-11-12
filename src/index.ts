@@ -1,12 +1,17 @@
 import config from 'config';
 import express from 'express';
+import routes from './routes';
 import connect from './utils/connect';
+import logger from './utils/logger';
 
 const app = express();
 const PORT = config.get<number>('port');
-app.get('/', (req, res) => res.send('hello Kate my dear try again'));
+routes(app);
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, async () => {
+    logger.info(`App is running on http://localhost:${PORT}`);
+    await connect();
+  });
+}
 
-app.listen(PORT, async () => {
-  console.log(`Example app listening on port ${PORT}!`);
-  await connect();
-});
+export default app;
