@@ -33,7 +33,10 @@ userSchema.methods.comparePassword = async function (
   passwordCandidate: string
 ): Promise<boolean> {
   const user = this as any as UserDocument;
-  return bcrypt.compare(passwordCandidate, user.password).catch((e) => false);
+  const compareResult = bcrypt
+    .compare(passwordCandidate, user.password)
+    .catch((e) => false);
+  return compareResult;
 };
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model<UserDocument>('User', userSchema);
 export default User;
