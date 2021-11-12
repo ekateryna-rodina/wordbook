@@ -5,6 +5,7 @@ import connect from './utils/connect';
 import logger from './utils/logger';
 
 const app = express();
+app.use(express.json());
 const PORT = config.get<number>('port');
 routes(app);
 if (process.env.NODE_ENV !== 'test') {

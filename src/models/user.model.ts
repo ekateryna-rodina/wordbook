@@ -21,9 +21,9 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-userSchema.pre('save', async (next: any) => {
+userSchema.pre('save', async function (next: any) {
   let user = this as any as UserDocument;
-  if (!user.isModified('password')) return;
+  if (!user.isModified('password')) return next();
   const salt = await bcrypt.genSalt(config.get<number>('saltFactor'));
   const hash = bcrypt.hashSync(user.password, salt);
   user.password = hash;
