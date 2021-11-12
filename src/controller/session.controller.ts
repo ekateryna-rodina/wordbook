@@ -1,9 +1,8 @@
 import config from 'config';
 import { Request, Response } from 'express';
-import { createSession } from '../service/session.service';
+import { createSession, findSessions } from '../service/session.service';
 import { validateUser } from '../service/user.service';
 import { signJwt } from '../utils/jwt';
-import logger from '../utils/logger';
 
 export async function createUserSessionHandler(req: Request, res: Response) {
   const user = await validateUser(req.body);
@@ -13,10 +12,14 @@ export async function createUserSessionHandler(req: Request, res: Response) {
     { ...user, session: session._id },
     { expiresIn: config.get<string>('accessTokenExpireIn') }
   );
-  logger.error(accessToken);
   const refreshToken = signJwt(
     { ...user, session: session._id },
     { expiresIn: config.get<string>('refreshTokenExpireIn') }
   );
   res.send({ accessToken, refreshToken });
+}
+export async function getUserSessionsHandler(req: Request, res: Response) {
+  const userId = res.locals.user._id;
+  const sessions = await findSessions({ user: userId, valid: true });
+  return res.send(sessions);
 }

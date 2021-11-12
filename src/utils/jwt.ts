@@ -1,25 +1,30 @@
+import config from 'config';
 import fs from 'fs';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import path from 'path';
 
-const privateKey: string = fs.readFileSync(
-  path.join(process.cwd(), 'privatekey.pem'),
+let privateKey: string = fs.readFileSync(
+  path.join(process.cwd(), 'private.pem'),
   'ascii'
 );
 
 const publicKey: string = fs.readFileSync(
-  path.join(process.cwd(), 'certificate.pem'),
+  path.join(process.cwd(), 'public.pem'),
   'ascii'
 );
 
 export function signJwt(object: Object, options?: jwt.SignOptions | undefined) {
-  const token = jwt.sign(object, privateKey, {
-    ...(options && options),
-    algorithm: 'RS256',
-  });
+  const token = jwt.sign(
+    object,
+    { key: privateKey, passphrase: config.get<string>('rsaSecret') },
+    {
+      ...(options && options),
+      algorithm: 'RS256',
+    }
+  );
   return token;
 }
-function verifyJwt(token: string): {
+export function verifyJwt(token: string): {
   valid: boolean;
   expired: boolean;
   decoded: string | JwtPayload | null;

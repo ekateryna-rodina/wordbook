@@ -4,4 +4,5 @@ export default {
   saltFactor: 15,
   accessTokenExpireIn: '20m',
   refreshTokenExpireIn: '1y',
+  rsaSecret: 'top secret',
 };
