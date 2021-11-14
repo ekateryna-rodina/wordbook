@@ -57,7 +57,7 @@ export async function updateRecordHandler(
     if (!record) {
       return res.status(404);
     }
-    if (record.user !== userId) {
+    if (String(record.user) !== userId) {
       return res.status(403);
     }
 
@@ -79,9 +79,9 @@ export async function getRecordHandler(
     const recordId = req.params.recordId;
     const record = await findRecord({ recordId });
     if (!record) {
-      return res.status(404);
+      return res.sendStatus(404);
     }
-    if (record.user !== userId) {
+    if (String(record.user) !== userId) {
       return res.status(403);
     }
     return res.send(record);
@@ -114,7 +114,7 @@ export async function deleteRecordHandler(
     if (!record) {
       return res.status(404);
     }
-    if (record.user !== userId) {
+    if (String(record.user) !== userId) {
       return res.status(403);
     }
 
