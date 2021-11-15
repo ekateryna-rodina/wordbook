@@ -2,11 +2,11 @@
   "name": "word-book-app",
   "version": "1.0.0",
   "description": "This app is for non native speakers to improve their vocabulary and help to improve their speech making it more literate and various",
-  "main": "index.js",
+  "main": "./index.ts",
   "scripts": {
     "test": "jest --watchAll --detectOpenHandles",
     "start:dev": "nodemon",
-    "start": "tsc && node build/index.js",
+    "start": "tsc && node server/build/index.js",
     "build": "tsc",
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "lint": "eslint . --ext .ts",
