@@ -1,4 +1,4 @@
-import { Express, Request, Response } from 'express';
+import { Express } from 'express';
 import {
   createRecordHandler,
   deleteRecordHandler,
@@ -19,6 +19,7 @@ import {
   updateTagHandler,
 } from './controller/tag.controller';
 import { createUserHandler } from './controller/user.controller';
+import { getWordInfoHandler } from './controller/words.controller';
 import { requireUser } from './middleware/requireUser';
 import validateResource from './middleware/validateResource';
 import {
@@ -35,11 +36,11 @@ import {
   updateTagSchema,
 } from './schema/tag.schema';
 import { createUserSchema } from './schema/user.schema';
+import { getWordInfoSchema } from './schema/word.schema';
 function routes(app: Express) {
-  app.get('/healthcheck', (req: Request, res: Response) => {
-    res.sendStatus(200);
-  });
+  // users
   app.post('/api/users', validateResource(createUserSchema), createUserHandler);
+  // sessions
   app.post(
     '/api/sessions',
     validateResource(createSessionSchema),
@@ -47,7 +48,7 @@ function routes(app: Express) {
   );
   app.get('/api/sessions', requireUser, getUserSessionsHandler);
   app.delete('/api/sessions', requireUser, deleteUserSessionHandler);
-
+  // tags
   app.post(
     '/api/tags',
     [requireUser, validateResource(createTagSchema)],
@@ -69,7 +70,7 @@ function routes(app: Express) {
     [requireUser, validateResource(deleteTagSchema)],
     deleteTagHandler
   );
-
+  // user's records
   app.post(
     '/api/records',
     [requireUser, validateResource(createRecordSchema)],
@@ -90,6 +91,12 @@ function routes(app: Express) {
     '/api/records/:recordId',
     [requireUser, validateResource(deleteRecordSchema)],
     deleteRecordHandler
+  );
+  // words api
+  app.get(
+    '/api/words/:word',
+    [requireUser, validateResource(getWordInfoSchema)],
+    getWordInfoHandler
   );
 }
 export default routes;
