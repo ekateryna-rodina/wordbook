@@ -1,0 +1,1 @@
+WORDS_API_KEY = '66afdd3609msh600aabcda4f0b56p18ed03jsnd8715885b73f';
