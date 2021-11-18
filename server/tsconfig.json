@@ -74,5 +74,5 @@
     "src/**/__tests__/*.ts",
     "build"
   ],
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "src/types"]
 }
