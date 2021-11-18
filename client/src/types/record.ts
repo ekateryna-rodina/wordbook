@@ -1,9 +1,9 @@
-import { ITag } from './tag';
+import { Tag } from './tag';
 
-export type IRecord = {
+export type Record = {
   id: string;
   record: string;
-  tags: ITag[];
+  tags: Tag[];
   sentences: string[];
   synonyms: {}[];
   antonyms: {}[];

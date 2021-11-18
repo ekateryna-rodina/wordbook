@@ -1,8 +1,8 @@
-import { IRecord } from './record';
+import { Record } from './record';
 
-export type ITag = {
+export type Tag = {
   id: string;
   name: string;
   user: string;
-  records: IRecord[];
+  records: Record[];
 };

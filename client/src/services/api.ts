@@ -1,43 +1,61 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IRecord } from '../types/record';
-import { IUser } from '../types/user';
+import { Record } from '../types/record';
+import {
+  UserBaseInfo,
+  UserLoginInput,
+  UserSecure,
+  UserSignUpInput,
+} from '../types/user';
 export const wordBookApi = createApi({
   reducerPath: 'wordBookApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/api' }),
-  tagTypes: ['Users'],
+  tagTypes: ['Records'],
   endpoints: (builder) => ({
-    createUser: builder.mutation<IUser, Partial<IUser>>({
+    createUser: builder.mutation<UserBaseInfo, UserSignUpInput>({
       query: (user) => ({
         url: 'users',
         method: 'POST',
         body: user,
       }),
-      transformResponse: (response: { data: IUser }) => response.data,
     }),
-    createSession: builder.mutation<Partial<IUser>, string>({
+    createSession: builder.mutation<UserSecure, UserLoginInput>({
       query: (userCredentials) => ({
         url: 'sessions',
         method: 'POST',
         body: userCredentials,
       }),
     }),
-    createRecord: builder.mutation<Partial<IRecord>, Partial<IRecord>>({
+    createRecord: builder.mutation<Partial<Record>, Partial<Record>>({
       query: (record) => ({
         url: 'records',
         method: 'POST',
         body: record,
       }),
+      invalidatesTags: [{ type: 'Records', id: 'LIST' }],
     }),
-    getRecordById: builder.query<string, IRecord>({
-      query: ({ id }) => ({
+    // avoid this by using selectFromResult
+    getRecordById: builder.query<Record, string>({
+      query: (id) => ({
         url: `records/${id}`,
         method: 'GET',
+        providesTags: (result: Partial<Record>, error: any, id: string) => [
+          { type: 'Record', id },
+        ],
+        transformResponse: (response: { data: Record }) => response.data,
       }),
     }),
-    getUserRecords: builder.query<null, IRecord[]>({
+    getUserRecords: builder.query<Record[], void>({
       query: () => ({
         url: 'records',
         method: 'GET',
+        providesTags: (result: Partial<Record>[], error: any, id: string) =>
+          result
+            ? [
+                ...result.map(({ id }) => ({ type: 'Records', id } as const)),
+                { type: 'Records', id },
+              ]
+            : [{ type: 'Records', id }],
+        transformResponse: (response: { data: Record[] }) => response.data,
       }),
     }),
   }),
@@ -47,4 +65,6 @@ export const {
   useCreateUserMutation,
   useCreateSessionMutation,
   useCreateRecordMutation,
+  useGetRecordByIdQuery,
+  useGetUserRecordsQuery,
 } = wordBookApi;
