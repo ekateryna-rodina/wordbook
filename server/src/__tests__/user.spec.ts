@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import request from 'supertest';
 import { createUserSessionHandler } from '../controller/session.controller';
+// import { createUserHandler } from '../controller/user.controller';
 import * as SessionService from '../service/session.service';
 import * as UserService from '../service/user.service';
 import createServer from '../utils/server';
@@ -78,17 +79,23 @@ describe('user', () => {
       });
     });
     describe('given credentials are valid', () => {
-      it('should return 200 and create user', async () => {
+      it('should return 200 and create user with signed access and refresh tokens', async () => {
         const createUserServiceMock = jest
           .spyOn(UserService, 'createUser')
           //   @ts-ignore
           .mockReturnValueOnce(userPayload);
-
+        jest
+          .spyOn(SessionService, 'createSession')
+          //@ts-ignore
+          .mockReturnValue(sessionPayload);
         const { statusCode, body } = await request(app)
           .post('/api/users')
           .send(userInput);
         expect(statusCode).toBe(200);
-        expect(body).toEqual(userPayload);
+        expect(body.name).toEqual(userPayload.name);
+        expect(body.email).toEqual(userPayload.email);
+        expect(body.refreshToken).toEqual(expect.any(String));
+        expect(body.accessToken).toEqual(expect.any(String));
         expect(createUserServiceMock).toBeCalledWith(userInput);
       });
     });
