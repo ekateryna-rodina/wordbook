@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from './app/hooks';
-import { SignUp } from './components/SignUp';
+import { CreateRecord } from './components/CreateRecord';
 import { amountAdded, incremented } from './features/counter/counter-slice';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <button onClick={() => handleClickWithArgs(3)}>count is {count}</button>
-      <SignUp />
+      <CreateRecord />
     </div>
   );
 }
