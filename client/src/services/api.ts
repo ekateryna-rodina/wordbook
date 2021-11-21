@@ -1,28 +1,41 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { CreateSessionSchema } from '../components/SignIn/SignIn';
+import { CreateUserSchema } from '../components/SignUp/SignUp';
 import { Record } from '../types/record';
-import {
-  UserBaseInfo,
-  UserLoginInput,
-  UserSecure,
-  UserSignUpInput,
-} from '../types/user';
+import { UserBaseInfo, UserSecure } from '../types/user';
 export const wordBookApi = createApi({
   reducerPath: 'wordBookApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/api' }),
   tagTypes: ['Records'],
   endpoints: (builder) => ({
-    createUser: builder.mutation<UserBaseInfo, UserSignUpInput>({
+    createUser: builder.mutation<UserBaseInfo, CreateUserSchema>({
       query: (user) => ({
         url: 'users',
         method: 'POST',
         body: user,
+        credentials: 'include',
       }),
     }),
-    createSession: builder.mutation<UserSecure, UserLoginInput>({
+    getCurrentUser: builder.query<UserBaseInfo, void>({
+      query: (user) => ({
+        url: 'users/currentUser',
+        method: 'GET',
+        credentials: 'include',
+      }),
+    }),
+    createSession: builder.mutation<UserSecure, CreateSessionSchema>({
       query: (userCredentials) => ({
         url: 'sessions',
         method: 'POST',
         body: userCredentials,
+        credentials: 'include',
+      }),
+    }),
+    clearSession: builder.mutation<{ success: boolean }, void>({
+      query: () => ({
+        url: 'sessions',
+        method: 'DELETE',
+        credentials: 'include',
       }),
     }),
     createRecord: builder.mutation<Partial<Record>, Partial<Record>>({
@@ -30,6 +43,7 @@ export const wordBookApi = createApi({
         url: 'records',
         method: 'POST',
         body: record,
+        credentials: 'include',
       }),
       invalidatesTags: [{ type: 'Records', id: 'LIST' }],
     }),
@@ -38,6 +52,7 @@ export const wordBookApi = createApi({
       query: (id) => ({
         url: `records/${id}`,
         method: 'GET',
+        credentials: 'include',
         providesTags: (result: Partial<Record>, error: any, id: string) => [
           { type: 'Record', id },
         ],
@@ -48,6 +63,7 @@ export const wordBookApi = createApi({
       query: () => ({
         url: 'records',
         method: 'GET',
+        credentials: 'include',
         providesTags: (result: Partial<Record>[], error: any, id: string) =>
           result
             ? [
@@ -67,4 +83,6 @@ export const {
   useCreateRecordMutation,
   useGetRecordByIdQuery,
   useGetUserRecordsQuery,
+  useClearSessionMutation,
+  useGetCurrentUserQuery,
 } = wordBookApi;

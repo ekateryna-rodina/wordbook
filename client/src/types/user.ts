@@ -11,6 +11,7 @@ export type UserLoginInput = {
 };
 
 export type UserBaseInfo = {
+  id: string;
   email: string;
   name: string;
 };
