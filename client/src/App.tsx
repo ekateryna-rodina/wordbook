@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from './app/hooks';
+import { Menu } from './components/Menu';
 import { SignIn } from './components/SignIn';
 import { SignUp } from './components/SignUp';
 import { UserActions } from './components/UserActions';
@@ -17,6 +18,7 @@ function App() {
   };
   return (
     <div className="App">
+      <Menu />
       <button onClick={() => handleClickWithArgs(3)}>count is {count}</button>
       <SignUp />
       <SignIn />
