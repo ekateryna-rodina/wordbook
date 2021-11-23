@@ -41,12 +41,15 @@ const W = styled.span`
 `;
 const Label = styled.span`
   display: block;
-  margin-left: 5px;
+  margin-left: 4px;
+  margin-top: 2px;
   color: ${(props) => props.theme.light};
   font-size: 14px;
+  line-height: 14px;
 `;
 const Spaced = styled.span`
   letter-spacing: 3px;
+  font-size: inherit;
 `;
 const Logo = () => {
   return (
