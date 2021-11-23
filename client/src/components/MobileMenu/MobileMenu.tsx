@@ -1,6 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import styled, { useTheme } from 'styled-components';
+import { Icons } from '../../utils/enums';
 import { respondTo } from '../../utils/_respondTo';
+import Icon from '../Icon.style';
 
 const Container = styled.div`
   position: fixed;
@@ -19,12 +22,16 @@ const Container = styled.div`
 `}
 `;
 const MobileMenu = () => {
+  const theme = useTheme();
   return (
     <Container>
       {/* <Search />
       <Favorites />
-      <Create />
-      <UserProfile /> */}
+      <Create /> */}
+
+      <Link to="/login">
+        <Icon iconType={Icons.User} color={(theme as any).light}></Icon>
+      </Link>
     </Container>
   );
 };

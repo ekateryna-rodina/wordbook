@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import CreateIcon from '../public/assets/create.svg';
-import FavouritesIcon from '../public/assets/favourites.svg';
-import LibraryIcon from '../public/assets/library.svg';
-import TrainingIcon from '../public/assets/training.svg';
-import UserIcon from '../public/assets/user.svg';
+import CreateIcon from '../assets/create.svg';
+import FavouritesIcon from '../assets/favourites.svg';
+import LibraryIcon from '../assets/library.svg';
+import TrainingIcon from '../assets/training.svg';
+import { ReactComponent as UserIcon } from '../assets/user.svg';
 import { Icons } from '../utils/enums';
 
 const StyledIcon = styled.div`
@@ -24,8 +24,7 @@ const iconTypes: Record<Icons, any> = {
   [Icons.User]: UserIcon,
 };
 
-const Icon = (props: IconProps) => {
-  const { iconType, color, size } = props;
+const Icon: React.FC<IconProps> = ({ iconType, color, size }) => {
   let Icn = iconTypes[iconType];
   return (
     <StyledIcon>
