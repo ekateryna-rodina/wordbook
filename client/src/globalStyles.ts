@@ -38,7 +38,7 @@ body{
 }
 `;
 
-type Colors =
+export type Colors =
   | 'primary'
   | 'secondary'
   | 'primaryText'

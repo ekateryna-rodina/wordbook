@@ -18,7 +18,7 @@ const Container = styled.nav`
 const Header = () => {
   return (
     <Container>
-      <Logo />
+      <Logo color="light" iconOnly={false} />
       {/* <Search />
       <NavigationLinks></NavigationLinks>
       <UserProfile /> */}
