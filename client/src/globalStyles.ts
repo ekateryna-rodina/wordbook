@@ -1,40 +1,75 @@
 import { createGlobalStyle } from 'styled-components';
-import { respondTo } from './utils/_respondTo';
+
+export const theme: Record<Colors, string> = {
+  primary: '#5D7342',
+  secondary: '#D7AE04',
+  primaryText: '#272727',
+  secondaryText: '#ECD7B8',
+  neutral: '#A58B8C',
+  dark: '#272727',
+  light: '#ECD7B8',
+  white: '#fff',
+};
 
 export const GlobalStyle = createGlobalStyle`
-html{
-  box-sizing: border-box;
-  height: 100%;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
   overflow: hidden;
 }
 
-body{
-  background-color:#fff;
-  min-height:100vh;
-  font-family: 'Lato', sans-serif;
-  overflow: hidden;
-  font-size: 100%;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-    ${respondTo.tablet`
-    font-size: 110%;
-    `}
-    ${respondTo.laptopAndDesktop`
-    font-size: 120%;
-    `}
-}
 *{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-size: 100%;
-    ${respondTo.tablet`
-    font-size: 110%;
-    `}
-    ${respondTo.laptopAndDesktop`
-    font-size: 120%;
-    `}
+  box-sizing: border-box;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+html, body {
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+}
+#root, #root>div {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  inset: 0;
+}
 }
 `;
 
@@ -47,13 +82,3 @@ export type Colors =
   | 'dark'
   | 'light'
   | 'white';
-export const theme: Record<Colors, string> = {
-  primary: '#5D7342',
-  secondary: '#D7AE04',
-  primaryText: '#272727',
-  secondaryText: '#ECD7B8',
-  neutral: '#A58B8C',
-  dark: '#272727',
-  light: '#ECD7B8',
-  white: '#fff',
-};

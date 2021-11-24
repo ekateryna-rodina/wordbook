@@ -4,7 +4,7 @@ import Button from '../components/Button.style';
 import { Logo } from '../components/Logo';
 
 const Container = styled.div`
-  --padding: 2rem;
+  --margin: 2rem;
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -19,13 +19,14 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
+  background-color: ${(props) => props.theme.white};
 `;
 const labelCss = css`
   font-family: Lato, sans-serif;
   text-align: center;
   position: absolute;
-  left: var(--padding);
-  right: var(--padding);
+  left: var(--margin);
+  right: var(--margin);
 `;
 const LogoContainer = styled.div`
   position: absolute;
@@ -44,12 +45,6 @@ const BottomWelcomeText = styled.h2`
   line-height: 1.5rem;
 `;
 const ActionButtonsContainer = styled.div`
-  // position: absolute;
-  // bottom: var(--padding);
-  // width: 60vw;
-  // left: 50%;
-  // transform: translateX(-50%);
-  // margin: auto;
   display: flex;
   gap: 1rem;
 `;
@@ -67,7 +62,7 @@ const Welcome = () => (
       <Button
         padding={[1, 2]}
         color={'dark'}
-        borderRadius={1}
+        borderRadius={'1rem'}
         background={'secondary'}
       >
         Sign Up
@@ -75,7 +70,7 @@ const Welcome = () => (
       <Button
         padding={[1, 2]}
         color={'light'}
-        borderRadius={1}
+        borderRadius={'1rem'}
         background={'dark'}
       >
         Log In

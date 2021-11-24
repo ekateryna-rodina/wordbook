@@ -7,7 +7,7 @@ const ButtonStyled = styled.button<ButtonProps>`
   padding: ${(props) => `${props.padding[0]}em ${props.padding[1]}em`};
   background: ${(props) => props.theme[props.background.toString()]};
   color: ${(props) => props.theme[props.color.toString()]};
-  border-radius: ${({ borderRadius }) => `${borderRadius}rem`};
+  border-radius: ${({ borderRadius }) => borderRadius};
   outline: none;
   border: none;
   transition: filter 0.2s ease;
@@ -23,7 +23,7 @@ type ButtonProps = {
   background: keyof typeof theme;
   color: keyof typeof theme;
   padding: [number, number];
-  borderRadius: number;
+  borderRadius: string;
 };
 const Button: React.FC<ButtonProps> = ({
   background,
