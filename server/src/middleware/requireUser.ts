@@ -7,7 +7,7 @@ export const requireUser = (
 ) => {
   const user = res.locals.user;
   if (!user) {
-    return res.send(403);
+    return res.sendStatus(403);
   }
   return next();
 };

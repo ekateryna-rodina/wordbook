@@ -22,6 +22,7 @@ export async function createRecordHandler(
   next: NextFunction
 ) {
   try {
+    logger.info('here');
     const userId = res.locals.user._id;
     const body = req.body;
     // create new tags if needed

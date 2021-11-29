@@ -18,7 +18,10 @@ import {
   getTagsHandler,
   updateTagHandler,
 } from './controller/tag.controller';
-import { createUserHandler } from './controller/user.controller';
+import {
+  createUserHandler,
+  getCurrentUserHandler,
+} from './controller/user.controller';
 import { getWordInfoHandler } from './controller/words.controller';
 import { requireUser } from './middleware/requireUser';
 import validateResource from './middleware/validateResource';
@@ -40,6 +43,7 @@ import { getWordInfoSchema } from './schema/word.schema';
 function routes(app: Express) {
   // users
   app.post('/api/users', validateResource(createUserSchema), createUserHandler);
+  app.get('/api/users/currentUser', requireUser, getCurrentUserHandler);
   // sessions
   app.post(
     '/api/sessions',

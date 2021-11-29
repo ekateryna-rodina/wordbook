@@ -4,6 +4,8 @@ enum Icons {
   Create = 'create',
   User = 'user',
   Training = 'training',
+  Back = 'back',
+  Google = 'google',
 }
 
 export { Icons };

@@ -1,5 +1,6 @@
 import config from 'config';
-import { Request, Response } from 'express';
+import Cookies from 'cookies';
+import { CookieOptions, Request, Response } from 'express';
 import { CreateUserInput } from '../schema/user.schema';
 import { createSession } from '../service/session.service';
 import { createUser } from '../service/user.service';
@@ -21,16 +22,31 @@ export async function createUserHandler(
       { ...user, session: session._id },
       { expiresIn: config.get<string>('refreshTokenExpireIn') }
     );
+    const options: CookieOptions = {
+      sameSite: 'strict',
+      path: '/',
+      httpOnly: true,
+      expires: new Date(
+        new Date().getTime() + config.get<number>('cookieExpires') * 1000
+      ),
+    };
 
+    const cookie = new Cookies(req, res, {
+      keys: [config.get<string>('cookieSecret')],
+    });
+    cookie.set('accessToken', accessToken, options);
+    cookie.set('refreshToken', refreshToken, options);
     return res.send({
       id: user._id,
       name: user.name,
       email: user.email,
-      accessToken,
-      refreshToken,
     });
   } catch (e: any) {
     logger.error(e);
     return res.status(409).send(e.message);
   }
+}
+
+export async function getCurrentUserHandler(req: Request, res: Response) {
+  return res.send(res.locals.user);
 }

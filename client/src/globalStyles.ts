@@ -1,13 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const theme: Record<Colors, string> = {
-  primary: '#5D7342',
-  secondary: '#D7AE04',
-  primaryText: '#272727',
-  secondaryText: '#ECD7B8',
-  neutral: '#A58B8C',
-  dark: '#272727',
-  light: '#ECD7B8',
+  primary: '#2B41A7',
+  secondary: '#C7AD24',
+  primaryText: '#1A3431',
+  secondaryText: '#6283C8',
+  neutral: '#CCC776',
+  dark: '#1A3431',
+  light: '#6283C8',
   white: '#fff',
 };
 
@@ -32,8 +32,14 @@ time, mark, audio, video {
   overflow: hidden;
 }
 
-*{
+*, *::before, *::after{
   box-sizing: border-box;
+  font-family: Lato, sans-serif;
+}
+
+body, html{
+  margin: 0;
+  padding: 0;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -69,6 +75,24 @@ html, body {
   width: 100%;
   position: fixed;
   inset: 0;
+}
+
+.back-btn{
+  --border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  background: ${`${theme.light}80`};
+  position: absolute;
+  top: 3rem;
+  left: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-border-radius: var(--border-radius);
+  -moz-border-radius: var(--border-radius);
+  -ms-border-radius: var(--border-radius);
+  -o-border-radius: var(--border-radius);
+  border-radius: var(--border-radius);
 }
 }
 `;

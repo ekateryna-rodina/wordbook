@@ -8,6 +8,7 @@ const ButtonStyled = styled.button<ButtonProps>`
   background: ${(props) => props.theme[props.background.toString()]};
   color: ${(props) => props.theme[props.color.toString()]};
   border-radius: ${({ borderRadius }) => borderRadius};
+  opacity: ${({ opacity }) => opacity};
   outline: none;
   border: none;
   transition: filter 0.2s ease;
@@ -24,16 +25,18 @@ type ButtonProps = {
   color: keyof typeof theme;
   padding: [number, number];
   borderRadius: string;
+  opacity?: number;
 };
 const Button: React.FC<ButtonProps> = ({
   background,
   color,
   padding,
   borderRadius,
+  opacity = 1,
   children,
 }) => {
   return (
-    <ButtonStyled {...{ background, color, padding, borderRadius }}>
+    <ButtonStyled {...{ background, color, padding, borderRadius, opacity }}>
       {children}
     </ButtonStyled>
   );

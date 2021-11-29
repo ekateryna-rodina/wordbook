@@ -8,11 +8,14 @@ export const deserializeUser = async (
   res: Response,
   next: NextFunction
 ) => {
-  const accessToken = get(req, 'headers.authorization', '').replace(
-    /^Bearer\s/,
-    ''
-  );
-  const refreshToken = get(req, 'headers.x-refresh');
+  const accessToken =
+    get(req, 'cookies.accessToken') ||
+    get(req, 'headers.authorization', '').replace(/^Bearer\s/, '');
+  logger.info(req);
+  logger.info(accessToken);
+  const refreshToken =
+    get(req, 'cookies.refreshToken') || get(req, 'headers.x-refresh');
+
   if (!accessToken) return next();
   const { decoded, expired } = verifyJwt(accessToken);
   if (decoded) {
@@ -23,8 +26,17 @@ export const deserializeUser = async (
     const newAccessToken = await reIssueAccessToken({ refreshToken });
     if (newAccessToken) {
       res.setHeader('x-access-token', newAccessToken);
+
+      res.cookie('accessToken', newAccessToken, {
+        maxAge: 60000 * 60,
+        httpOnly: true,
+        domain: 'localhost',
+        path: '/',
+        sameSite: 'strict',
+        secure: false,
+      });
+
       const { decoded } = verifyJwt(newAccessToken);
-      logger.error(decoded);
       res.locals.user = decoded;
       return next();
     }

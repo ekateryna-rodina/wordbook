@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { ReactComponent as BackIcon } from '../assets/back.svg';
 import CreateIcon from '../assets/create.svg';
 import FavouritesIcon from '../assets/favourites.svg';
+import { ReactComponent as GoogleIcon } from '../assets/google.svg';
 import LibraryIcon from '../assets/library.svg';
 import TrainingIcon from '../assets/training.svg';
 import { ReactComponent as UserIcon } from '../assets/user.svg';
@@ -13,7 +15,7 @@ const StyledIcon = styled.div`
 `;
 type IconProps = {
   iconType: Icons;
-  color: string;
+  color?: string;
   size?: number;
 };
 const iconTypes: Record<Icons, any> = {
@@ -22,6 +24,8 @@ const iconTypes: Record<Icons, any> = {
   [Icons.Create]: CreateIcon,
   [Icons.Training]: TrainingIcon,
   [Icons.User]: UserIcon,
+  [Icons.Back]: BackIcon,
+  [Icons.Google]: GoogleIcon,
 };
 
 const Icon: React.FC<IconProps> = ({ iconType, color, size }) => {

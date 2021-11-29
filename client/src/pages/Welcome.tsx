@@ -69,7 +69,7 @@ const Welcome = () => (
       </Button>
       <Button
         padding={[1, 2]}
-        color={'light'}
+        color={'white'}
         borderRadius={'1rem'}
         background={'dark'}
       >

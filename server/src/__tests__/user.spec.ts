@@ -94,8 +94,6 @@ describe('user', () => {
         expect(statusCode).toBe(200);
         expect(body.name).toEqual(userPayload.name);
         expect(body.email).toEqual(userPayload.email);
-        expect(body.refreshToken).toEqual(expect.any(String));
-        expect(body.accessToken).toEqual(expect.any(String));
         expect(createUserServiceMock).toBeCalledWith(userInput);
       });
     });

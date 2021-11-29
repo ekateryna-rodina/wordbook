@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import styled, { css, useTheme } from 'styled-components';
 import { object, string, TypeOf } from 'zod';
 import Icon from '../components/Icon.style';
-import { useCreateSessionMutation } from '../services/api';
+import { useCreateUserMutation } from '../services/api';
 import { Icons } from '../utils/enums';
 import { respondTo } from '../utils/_respondTo';
 
@@ -92,7 +92,7 @@ const Input = styled.input.attrs((props: { autocomplete: string }) => ({
     box-shadow: ${(props) => `0 0 0 2px ${props.theme.primary} inset`};
   }
 `;
-const Sub = styled.sub``;
+
 const Paragraph = styled.p`
   position: absolute;
   bottom: 2rem;
@@ -173,23 +173,37 @@ const CheckboxLabel = styled.label`
   }
 `;
 
-export const createSessionSchema = object({
-  email: string().nonempty({ message: 'Email is required' }),
-  password: string().nonempty({ message: 'Password is required' }),
+export const createUserSchema = object({
+  name: string().nonempty({ message: 'Name is required' }),
+  password: string()
+    .nonempty({ message: 'Password is required' })
+    .min(6, 'Pasword must be minimum 6 characters'),
+  passwordConfirmation: string().nonempty({
+    message: 'Password confirmation is required',
+  }),
+  email: string()
+    .nonempty({
+      message: 'Email is required',
+    })
+    .email('Email has a wrong format'),
+}).refine((data) => data.password === data.passwordConfirmation, {
+  message: 'Passwords do not match',
+  path: ['passwordConfirmation'],
 });
-export type CreateSessionSchema = TypeOf<typeof createSessionSchema>;
-const Login = () => {
+
+export type CreateUserSchema = TypeOf<typeof createUserSchema>;
+const Register = () => {
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<CreateSessionSchema>({
-    resolver: zodResolver(createSessionSchema),
+  } = useForm<CreateUserSchema>({
+    resolver: zodResolver(createUserSchema),
   });
-  const [signIn, { isLoading, data, error }] = useCreateSessionMutation();
+  const [signUp, { isLoading, data, error }] = useCreateUserMutation();
 
-  const logInHandler = (values: CreateSessionSchema) => {
-    signIn(values);
+  const signUpHandler = (values: CreateUserSchema) => {
+    signUp(values);
   };
 
   const theme = useTheme();
@@ -203,9 +217,18 @@ const Login = () => {
             size={22}
           />
         </Link>
-        <Form onSubmit={handleSubmit(logInHandler)}>
-          <Header>Log In into your account</Header>
+        <Form onSubmit={handleSubmit(signUpHandler)}>
+          <Header>Create account</Header>
           <span>{(error as any)?.message}</span>
+          <FormElement>
+            <Input
+              {...register('name')}
+              type="text"
+              data-lpignore="true"
+              placeholder="Name"
+            ></Input>
+            <span>{errors.name?.message}</span>
+          </FormElement>
           <FormElement>
             <Input
               {...register('email')}
@@ -225,9 +248,15 @@ const Login = () => {
               autocomplete="new-password"
             ></Input>
             <span>{errors.password?.message}</span>
-            <Sub>
-              <Link to="/forgetPassword"></Link>
-            </Sub>
+          </FormElement>
+          <FormElement>
+            <Input
+              {...register('passwordConfirmation')}
+              type="password"
+              data-lpignore="true"
+              placeholder="Confirm Password"
+            ></Input>
+            <span>{errors.password?.message}</span>
           </FormElement>
           <PrivatePolicyContainer>
             <Checkbox type="checkbox" id="policy-check" />
@@ -242,15 +271,15 @@ const Login = () => {
               </Link>
             </CheckboxLabel>
           </PrivatePolicyContainer>
-          <ActionButton type="submit" value="Log In" />
+          <ActionButton type="submit" value="Create Account" />
           <GoogleButton>
             <Icon iconType={Icons.Google} />
-            Log In with Google
+            Sign Up with Google
           </GoogleButton>
           <Paragraph>
-            Don't have an account?{' '}
-            <Link to="/register">
-              <span>Sign Up</span>
+            Already have an account?{' '}
+            <Link to="/login">
+              <span>Log In</span>
             </Link>
           </Paragraph>
         </Form>
@@ -259,4 +288,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
