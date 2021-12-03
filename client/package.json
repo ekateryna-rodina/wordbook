@@ -2,13 +2,13 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@hookform/resolvers": "^2.8.3",
     "@reduxjs/toolkit": "^1.6.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
@@ -22,14 +22,47 @@
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
     "styled-components": "^5.3.3",
-    "typescript": "^4.1.2",
     "web-vitals": "^1.0.1",
     "zod": "^3.11.6"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "jsdom",
+    "roots": [
+      "./src"
+    ],
+    "transform": {
+      "\\.ts$": [
+        "ts-jest"
+      ]
+    },
+    "moduleNameMapper": {
+      "^.+\\.svg$": "jest-svg-transformer"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": {
+          "allowJs": true
+        }
+      }
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.ts"
+    ]
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest --watch",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -51,8 +84,13 @@
     ]
   },
   "devDependencies": {
+    "@types/jest": "^26.0.24",
     "@types/styled-components": "^5.1.15",
     "dotenv": "^10.0.0",
-    "jest": "^26.0.0"
+    "jest": "^27.4.3",
+    "jest-environment-jsdom": "^27.4.3",
+    "jest-svg-transformer": "^1.0.0",
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.5.2"
   }
 }

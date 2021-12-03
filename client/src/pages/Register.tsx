@@ -7,7 +7,6 @@ import { object, string, TypeOf } from 'zod';
 import Icon from '../components/Icon.style';
 import { useCreateUserMutation } from '../services/api';
 import { Icons } from '../utils/enums';
-import { respondTo } from '../utils/_respondTo';
 
 const buttonStyle = css`
   width: 100%;
@@ -22,7 +21,8 @@ const buttonStyle = css`
 const Container = styled.div`
   --margin: 2rem;
   --padding: var(--margin);
-  width: 100vw;
+  width: 100%;
+  max-width: 400px;
   height: 100vh;
   transition: background 0.3s ease;
   background: ${(props) => props.theme.white};
@@ -31,13 +31,6 @@ const Container = styled.div`
   box-sizing: border-box;
   padding: 3rem 0;
   margin: 0 auto;
-
-  ${respondTo.tablet`
-  max-width: 50vw;
-  `}
-  ${respondTo.laptopAndDesktop`
-  max-width: 30vw;
-  `}
 `;
 
 const Form = styled.form`

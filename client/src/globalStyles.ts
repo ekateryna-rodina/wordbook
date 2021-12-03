@@ -94,7 +94,6 @@ html, body {
   -o-border-radius: var(--border-radius);
   border-radius: var(--border-radius);
 }
-}
 `;
 
 export type Colors =
