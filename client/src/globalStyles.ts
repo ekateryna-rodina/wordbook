@@ -1,17 +1,19 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, DefaultTheme } from 'styled-components';
 
-export const theme: Record<Colors, string> = {
-  primary: '#2B41A7',
-  secondary: '#C7AD24',
-  primaryText: '#1A3431',
-  secondaryText: '#6283C8',
-  neutral: '#CCC776',
-  dark: '#1A3431',
-  light: '#6283C8',
-  white: '#fff',
+export const theme: DefaultTheme = {
+  colors: {
+    primary: '#2B41A7',
+    secondary: '#871f78',
+    primaryText: '#1A3431',
+    secondaryText: '#6283C8',
+    neutral: '#e1affd',
+    dark: '#1A3431',
+    light: '#6283C8',
+    white: '#fff',
+  },
 };
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle<{ theme: Record<Colors, string> }>`
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -81,7 +83,7 @@ html, body {
   --border-radius: 50%;
   width: 2rem;
   height: 2rem;
-  background: ${`${theme.light}80`};
+  background: ${`${theme.colors.light}80`};
   position: absolute;
   top: 3rem;
   left: 2rem;

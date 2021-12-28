@@ -11,8 +11,8 @@ const Container = styled.nav`
   align-items: center;
   min-height: 8vh;
   font-family: Lato, sans-serif;
-  background: ${(props: any) => props.theme.dark};
-  color: ${(props: any) => props.theme.light};
+  background: ${(props: any) => props.theme.colors.dark};
+  color: ${(props: any) => props.theme.colors.light};
 `}
 `;
 const Header = () => {

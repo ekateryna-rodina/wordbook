@@ -25,7 +25,7 @@ const Container = styled.div`
   max-width: 400px;
   height: 100vh;
   transition: background 0.3s ease;
-  background: ${(props) => props.theme.white};
+  background: ${(props) => props.theme.colors.white};
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
@@ -39,12 +39,12 @@ const Form = styled.form`
   right: 0;
   bottom: 0;
   height: 92%;
-  background: ${(props) => props.theme.dark};
+  background: ${(props) => props.theme.colors.dark};
   padding: var(--margin);
   background: transparent;
 `;
 const Header = styled.h2`
-  color: ${(props) => props.theme.dark};
+  color: ${(props) => props.theme.colors.dark};
   font-size: clamp(2rem, 2vh, 3rem);
   padding: 0.5rem 0;
   margin: 0 0 2vh 0;
@@ -56,7 +56,7 @@ const Input = styled.input.attrs((props: { autocomplete: string }) => ({
 }))`
   width: 100%;
   padding: 1rem;
-  border: ${(props) => `1px solid ${props.theme.light}`};
+  border: ${(props) => `1px solid ${props.theme.colors.light}`};
   background-color: transparent;
   margin-bottom: 1rem;
   border-radius: 0.2rem;
@@ -64,25 +64,26 @@ const Input = styled.input.attrs((props: { autocomplete: string }) => ({
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus {
-    border: ${(props) => `1px solid ${props.theme.primary}`};
-    -webkit-text-fill-color: ${(props) => props.theme.dark};
+    border: ${(props) => `1px solid ${props.theme.colors.primary}`};
+    -webkit-text-fill-color: ${(props) => props.theme.colors.dark};
     -webkit-box-shadow: ${(props) =>
-      `0 0 0px 1000px ${props.theme.white} inset`};
+      `0 0 0px 1000px ${props.theme.colors.white} inset`};
     transition: background-color 0.2s ease-in-out 0s;
     outline: none;
   }
 
   &:hover,
   &:focus {
-    border: ${(props) => `1px solid ${props.theme.primary}`};
-    color: ${(props) => props.theme.dark};
-    box-shadow: ${(props) => `0 0 0px 1000px  ${props.theme.white} inset`};
+    border: ${(props) => `1px solid ${props.theme.colors.primary}`};
+    color: ${(props) => props.theme.colors.dark};
+    box-shadow: ${(props) =>
+      `0 0 0px 1000px  ${props.theme.colors.white} inset`};
     transition: background-color 0.2s ease-in-out 0s;
     outline: none;
   }
   &:focus-visible {
     outline: none;
-    box-shadow: ${(props) => `0 0 0 2px ${props.theme.primary} inset`};
+    box-shadow: ${(props) => `0 0 0 2px ${props.theme.colors.primary} inset`};
   }
 `;
 
@@ -90,19 +91,19 @@ const Paragraph = styled.p`
   position: absolute;
   bottom: 2rem;
   & span {
-    color: ${(props) => props.theme.primary};
+    color: ${(props) => props.theme.colors.primary};
   }
 `;
 const ActionButton = styled.input`
   ${buttonStyle};
-  background: ${(props) => props.theme.primary};
-  color: ${(props) => props.theme.white};
+  background: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.white};
 `;
 const GoogleButton = styled.button`
   ${buttonStyle};
-  background: ${(props) => props.theme.white};
-  color: ${(props) => props.theme.primary};
-  border: ${(props) => `1px solid ${props.theme.primary}`};
+  background: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.primary};
+  border: ${(props) => `1px solid ${props.theme.colors.primary}`};
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -131,13 +132,13 @@ const Checkbox = styled.input`
   height: 1.2rem;
   width: 1.2rem;
   border-radius: 3px;
-  border: ${(props) => `1px solid ${props.theme.primary}`};
+  border: ${(props) => `1px solid ${props.theme.colors.primary}`};
   margin-left: 0;
   &:hover {
     filter: brightness(110%);
   }
   &:checked {
-    background: ${(props) => props.theme.primary};
+    background: ${(props) => props.theme.colors.primary};
     border: none;
   }
   &:after {
@@ -161,7 +162,7 @@ const CheckboxLabel = styled.label`
   padding-left: 0.75rem;
   line-height: 1.2rem;
   span {
-    color: ${(props) => props.theme.primary};
+    color: ${(props) => props.theme.colors.primary};
     text-decoration: none;
   }
 `;

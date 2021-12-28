@@ -13,7 +13,9 @@ const LogoStyled = styled.div<{ color: 'light' | 'dark' }>`
   font-family: Quicksand, sans-serif;
   position: relative;
   color: ${(props) =>
-    props.color === 'dark' ? props.theme.dark : props.theme.light};
+    props.color === 'dark'
+      ? props.theme.colors.dark
+      : props.theme.colors.light};
   height: 18px;
   width: 18px;
 `;
@@ -45,7 +47,9 @@ const Label = styled.span<{ hidden: boolean; color: 'dark' | 'light' }>`
   margin-left: 4px;
   margin-top: 2px;
   color: ${(props) =>
-    props.color === 'dark' ? props.theme.dark : props.theme.light};
+    props.color === 'dark'
+      ? props.theme.colors.dark
+      : props.theme.colors.light};
   font-size: 14px;
   line-height: 14px;
 `;

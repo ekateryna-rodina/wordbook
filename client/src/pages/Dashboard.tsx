@@ -4,7 +4,7 @@ import Icon from '../components/Icon.style';
 import { Icons } from '../utils/enums';
 
 const WelcomeUser = styled.h2`
-  color: ${(props) => props.theme.dark};
+  color: ${(props) => props.theme.colors.dark};
   font-weight: 600;
   font-size: 1.2rem;
   margin: 0;
@@ -23,7 +23,7 @@ const WordRow = styled.li`
 const Word = styled.span``;
 const Actions = styled.div``;
 const Container = styled.div`
-  --bg: ${(props) => `${props.theme.light}24`};
+  --bg: ${(props) => `${props.theme.colors.light}24`};
   width: 100%;
   height: 100%;
   /* padding: 2rem 1rem; */
@@ -37,7 +37,7 @@ const Header = styled.div`
   margin-bottom: 1rem;
 `;
 const Label = styled.h3`
-  color: ${(props) => props.theme.primary};
+  color: ${(props) => props.theme.colors.primary};
   font-weight: 600;
   font-size: 1.2rem;
   margin: 0;

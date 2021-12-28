@@ -19,7 +19,7 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
-  background-color: ${(props) => props.theme.white};
+  background-color: ${(props) => props.theme.colors.white};
 `;
 const labelCss = css`
   font-family: Lato, sans-serif;

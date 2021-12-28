@@ -13,7 +13,7 @@ const Container = styled.div<{ show: boolean }>`
   inset: 0;
   transform: ${({ show }) => (show ? 'translateX(0)' : 'translateX(100%)')};
   transition: transform 0.3s ease;
-  background: ${(props) => props.theme.white};
+  background: ${(props) => props.theme.colors.white};
   padding: 2rem 1rem;
 `;
 const InnerContainer = styled.div`
@@ -29,7 +29,7 @@ const Label = styled.label`
   position: absolute;
   left: 1rem;
   top: -0.5rem;
-  background: ${(props) => props.theme.white};
+  background: ${(props) => props.theme.colors.white};
   margin-top: 0.5rem;
 `;
 const TextAreaStyle = css`
@@ -41,11 +41,11 @@ const TextAreaStyle = css`
 `;
 const RecordInput = styled.textarea`
   ${TextAreaStyle};
-  border: ${(props) => `1px solid ${props.theme.primary}`};
+  border: ${(props) => `1px solid ${props.theme.colors.primary}`};
 `;
 const HintInput = styled.textarea`
   ${TextAreaStyle};
-  border: ${(props) => `1px solid ${props.theme.neutral}`};
+  border: ${(props) => `1px solid ${props.theme.colors.neutral}`};
 `;
 const Form = styled.form`
   width: 100%;

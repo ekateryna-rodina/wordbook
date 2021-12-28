@@ -12,7 +12,7 @@ const Label = styled.label`
   position: absolute;
   left: 1rem;
   top: -0.5rem;
-  background: ${(props) => props.theme.white};
+  background: ${(props) => props.theme.colors.white};
   margin-top: 0.5rem;
 `;
 const TextAreaStyle = css`
@@ -24,7 +24,7 @@ const TextAreaStyle = css`
 `;
 const TextareaStyled = styled.textarea`
   ${TextAreaStyle};
-  border: ${(props) => `1px solid ${props.theme.primary}`};
+  border: ${(props) => `1px solid ${props.theme.colors.primary}`};
 `;
 
 type TextareaProps = {

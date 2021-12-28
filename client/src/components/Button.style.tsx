@@ -5,8 +5,8 @@ import { theme } from '../globalStyles';
 const ButtonStyled = styled.button<ButtonProps>`
   --active-brightness: 1.2;
   padding: ${(props) => `${props.padding[0]}em ${props.padding[1]}em`};
-  background: ${(props) => props.theme[props.background.toString()]};
-  color: ${(props) => props.theme[props.color.toString()]};
+  background: ${(props) => props.theme.colors[props.background.toString()]};
+  color: ${(props) => props.theme.colors[props.color.toString()]};
   border-radius: ${({ borderRadius }) => borderRadius};
   opacity: ${({ opacity }) => opacity};
   outline: none;
@@ -21,8 +21,8 @@ const ButtonStyled = styled.button<ButtonProps>`
 `;
 
 type ButtonProps = {
-  background: keyof typeof theme;
-  color: keyof typeof theme;
+  background: keyof typeof theme.colors;
+  color: keyof typeof theme.colors;
   padding: [number, number];
   borderRadius: string;
   opacity?: number;
