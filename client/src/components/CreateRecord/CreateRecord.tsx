@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { useCreateRecordMutation } from '../../services/api';
+import { RecordInputTypes } from '../../utils/enums';
+import { Input } from '../Input';
+import { SetSelector } from '../SetSelector';
 import { TagsInput } from '../TagsInput';
+import { Textarea } from '../Textarea';
 
 const Container = styled.div<{ show: boolean }>`
   height: 100vh;
@@ -17,11 +21,9 @@ const InnerContainer = styled.div`
   height: 100%;
   position: relative;
 `;
-const InputContainer = styled.div`
+const TagsInputContainer = styled.div`
   position: relative;
   width: 100%;
-  margin: 0.5rem 0 1rem 0;
-  padding: 0;
 `;
 const Label = styled.label`
   position: absolute;
@@ -41,7 +43,7 @@ const RecordInput = styled.textarea`
   ${TextAreaStyle};
   border: ${(props) => `1px solid ${props.theme.primary}`};
 `;
-const DescriptionInput = styled.textarea`
+const HintInput = styled.textarea`
   ${TextAreaStyle};
   border: ${(props) => `1px solid ${props.theme.neutral}`};
 `;
@@ -72,28 +74,14 @@ const CreateRecord = ({ show }: { show: boolean }) => {
     <Container show={show}>
       <InnerContainer>
         <Form onSubmit={createRecordHandler}>
-          <InputContainer>
-            <Label htmlFor="record">Word or phrase</Label>
-            <RecordInput
-              required
-              id="record"
-              value={record}
-              onChange={(e) => setRecord(e.target.value)}
-              data-testid="wordInputTestId"
-            ></RecordInput>
-          </InputContainer>
-          <InputContainer>
-            <Label htmlFor="description">Description</Label>
-            <DescriptionInput
-              required
-              id="description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            ></DescriptionInput>
-          </InputContainer>
-          <InputContainer>
+          <Textarea name={RecordInputTypes.Word} />
+          <Textarea name={RecordInputTypes.Hint} />
+          <Textarea name={RecordInputTypes.Example} />
+          <SetSelector />
+          <TagsInputContainer>
             <TagsInput />
-          </InputContainer>
+          </TagsInputContainer>
+          <Input name={RecordInputTypes.Transcription} />
           <input
             style={{ position: 'absolute', bottom: 0, right: 0 }}
             type="submit"

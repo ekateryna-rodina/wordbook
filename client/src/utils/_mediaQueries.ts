@@ -11,7 +11,7 @@ export type QueryType =
   | 'laptopAndDesktop';
 
 export const mediaQueries: Record<QueryType, string> = {
-  mobileXS: '(max-width: 320px)',
+  mobileXS: '(max-width: 320px), (max-height: 668px)',
   mobileS: '(min-width: 321px) and (max-width: 374px)',
   mobileM: '(min-width: 375px) and (max-width: 424px)',
   mobileL: '(min-width: 425px) and (max-width: 767px)',

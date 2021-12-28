@@ -163,6 +163,7 @@ const TagsInput = () => {
         value={tag}
         onChange={(e) => setTag(e.target.value)}
         onKeyDown={confirmSuggestionHandler}
+        data-testid="tags-autocomplete-testid"
       />
       <VirtualWrapper>
         <Hidden>{tag}</Hidden>

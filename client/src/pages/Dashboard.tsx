@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CreateRecord } from '../components/CreateRecord';
 import Icon from '../components/Icon.style';
 import { Icons } from '../utils/enums';
 
@@ -27,7 +26,7 @@ const Container = styled.div`
   --bg: ${(props) => `${props.theme.light}24`};
   width: 100%;
   height: 100%;
-  padding: 2rem 1rem;
+  /* padding: 2rem 1rem; */
   position: relative;
 `;
 const Header = styled.div`
@@ -49,7 +48,7 @@ const Collection = styled.ul`
   padding: 0;
 `;
 
-const Home = () => {
+const Dashboard = () => {
   const renderCollection = () => {
     if (true) {
       return (
@@ -79,16 +78,17 @@ const Home = () => {
     }
   };
   return (
-    <Container>
-      <Header>
-        {/* <WelcomeUser>Welcome, Kate!</WelcomeUser> */}
-        <Label>Your Words</Label>
-        <Icon iconType={Icons.Create} />
-      </Header>
-      {renderCollection()}
-      <CreateRecord show={true} />
-    </Container>
+    // <Container>
+    //   <Header>
+    //     {/* <WelcomeUser>Welcome, Kate!</WelcomeUser> */}
+    //     <Label>Your Words</Label>
+    //     <Icon iconType={Icons.Create} />
+    //   </Header>
+    //   {renderCollection()}
+    //   <CreateRecord show={true} />
+    // </Container>
+    <Container>{/* <Menu /> */}</Container>
   );
 };
 
-export default Home;
+export default Dashboard;

@@ -1,4 +1,4 @@
-enum Icons {
+export enum Icons {
   Library = 'library',
   Favourites = 'favourites',
   Create = 'create',
@@ -10,4 +10,10 @@ enum Icons {
   Remove = 'remove',
 }
 
-export { Icons };
+export enum RecordInputTypes {
+  Word = 'Word or phrase',
+  Hint = 'Hint to memorize',
+  Example = 'Examples',
+  Transcription = 'Transcription',
+  SpeechPart = 'Part of speech',
+}
