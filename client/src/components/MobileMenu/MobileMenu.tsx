@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styled, { useTheme } from 'styled-components';
+import styled from 'styled-components';
+import { theme } from '../../globalStyles';
 import { respondTo } from '../../utils/_respondTo';
 
 const Container = styled.div`
@@ -19,7 +20,6 @@ const Container = styled.div`
 `} */
 `;
 const MobileMenu = () => {
-  const theme = useTheme();
   const [activeTab, setActiveTab] = useState(0);
   return (
     <Container>
