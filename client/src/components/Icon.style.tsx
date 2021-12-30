@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { ReactComponent as AcademicIcon } from '../assets/academic.svg';
+import { ReactComponent as AddToCollectionIcon } from '../assets/addToCollection.svg';
 import { ReactComponent as BackIcon } from '../assets/back.svg';
 import { ReactComponent as CreateIcon } from '../assets/create.svg';
 import { ReactComponent as DetailsIcon } from '../assets/details.svg';
 import FavouritesIcon from '../assets/favourites.svg';
 import { ReactComponent as GoogleIcon } from '../assets/google.svg';
 import LibraryIcon from '../assets/library.svg';
+import { ReactComponent as ListenIcon } from '../assets/listen.svg';
 import { ReactComponent as RemoveIcon } from '../assets/remove.svg';
 import TrainingIcon from '../assets/training.svg';
 import { ReactComponent as UserIcon } from '../assets/user.svg';
@@ -30,6 +33,9 @@ const iconTypes: Record<Icons, any> = {
   [Icons.Google]: GoogleIcon,
   [Icons.Details]: DetailsIcon,
   [Icons.Remove]: RemoveIcon,
+  [Icons.Academic]: AcademicIcon,
+  [Icons.AddToCollection]: AddToCollectionIcon,
+  [Icons.Listen]: ListenIcon,
 };
 
 const Icon: React.FC<IconProps> = ({ iconType, color, size }) => {

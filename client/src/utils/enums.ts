@@ -8,6 +8,9 @@ export enum Icons {
   Google = 'google',
   Details = 'details',
   Remove = 'remove',
+  Academic = 'academic',
+  AddToCollection = 'add',
+  Listen = 'listen',
 }
 
 export enum RecordInputTypes {

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { NewWord } from '../components/NewWord';
 import { SearchBar } from '../components/SearchBar';
 
 const Container = styled.div`
@@ -15,6 +16,7 @@ const Dashboard = () => {
   return (
     <Container>
       <SearchBar />
+      <NewWord />
     </Container>
   );
 };
