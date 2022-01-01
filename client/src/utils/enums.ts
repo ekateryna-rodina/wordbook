@@ -20,3 +20,9 @@ export enum RecordInputTypes {
   Transcription = 'Transcription',
   SpeechPart = 'Part of speech',
 }
+
+export enum DashboardTabs {
+  Challenge = 'challenge',
+  Stats = 'stats',
+  Recent = 'recent',
+}

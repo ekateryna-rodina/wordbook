@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { NewWord } from '../components/NewWord';
 import { SearchBar } from '../components/SearchBar';
+import { Tabs } from '../components/Tabs';
 
 const Container = styled.div`
   --bg: ${(props) => `${props.theme.colors.light}24`};
@@ -17,6 +18,7 @@ const Dashboard = () => {
     <Container>
       <SearchBar />
       <NewWord />
+      <Tabs />
     </Container>
   );
 };
