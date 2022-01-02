@@ -11,6 +11,8 @@ export enum Icons {
   Academic = 'academic',
   AddToCollection = 'add',
   Listen = 'listen',
+  Problem = 'problem',
+  Swipe = 'swipe',
 }
 
 export enum RecordInputTypes {
