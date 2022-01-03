@@ -30,3 +30,7 @@ export enum DashboardTabs {
   Stats = 'stats',
   Recent = 'recent',
 }
+
+export enum ChallengeType {
+  Missing,
+}

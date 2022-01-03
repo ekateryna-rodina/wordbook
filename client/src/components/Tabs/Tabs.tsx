@@ -4,10 +4,13 @@ import { DashboardTabs } from '../../utils/enums';
 import { Tab } from '../Tab';
 
 const Container = styled.ul`
-  margin: 0;
+  margin: 1rem 0;
   padding: 0;
   /* border-bottom: 1px solid #ccc; */
-  width: fit-content;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const Tabs = () => {
   const [active, setActive] = useState<DashboardTabs>(DashboardTabs.Challenge);
