@@ -3,10 +3,10 @@ import { createGlobalStyle, DefaultTheme } from 'styled-components';
 export const theme: DefaultTheme = {
   colors: {
     primary: '#2B41A7',
-    secondary: '#CC8899',
+    secondary: '#e1affd',
     primaryText: '#1A3431',
     secondaryText: '#6283C8',
-    neutral: '#e1affd',
+    neutral: 'rgba(0, 0, 0, .2)',
     dark: '#1A3431',
     light: '#6283C8',
     white: '#fff',

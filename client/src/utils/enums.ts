@@ -13,6 +13,8 @@ export enum Icons {
   Listen = 'listen',
   Problem = 'problem',
   Swipe = 'swipe',
+  Search = 'search',
+  Settings = '',
 }
 
 export enum RecordInputTypes {

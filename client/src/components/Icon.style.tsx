@@ -11,6 +11,8 @@ import LibraryIcon from '../assets/library.svg';
 import { ReactComponent as ListenIcon } from '../assets/listen.svg';
 import { ReactComponent as ProblemIcon } from '../assets/problem.svg';
 import { ReactComponent as RemoveIcon } from '../assets/remove.svg';
+import { ReactComponent as SearchIcon } from '../assets/search.svg';
+import { ReactComponent as SettingsIcon } from '../assets/settings.svg';
 import { ReactComponent as SwipeIcon } from '../assets/swipe.svg';
 import TrainingIcon from '../assets/training.svg';
 import { ReactComponent as UserIcon } from '../assets/user.svg';
@@ -40,6 +42,8 @@ const iconTypes: Record<Icons, any> = {
   [Icons.Listen]: ListenIcon,
   [Icons.Problem]: ProblemIcon,
   [Icons.Swipe]: SwipeIcon,
+  [Icons.Search]: SearchIcon,
+  [Icons.Settings]: SettingsIcon,
 };
 
 const Icon: React.FC<IconProps> = ({ iconType, color, size }) => {
