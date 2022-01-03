@@ -42,7 +42,7 @@ const MobileMenu = () => {
         </Link>
 
         <path
-          d="M144 102.5V55L166 2.5L182.5 67L175 81.5V96L166 102.5H144Z"
+          d="M 144 102.5 V 55 L 162 56 L 182.5 67 L 175 81.5 V 96 L 166 102.5 H 144 Z"
           fill="white"
           stroke="white"
         />
