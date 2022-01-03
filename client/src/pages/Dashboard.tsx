@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { DashboardChallengeTab } from '../components/DashboardChallengeTab';
+import { DashboardStatsTab } from '../components/DashboardStatsTab';
 import { NewWord } from '../components/NewWord';
 import { SearchBar } from '../components/SearchBar';
 import { Tabs } from '../components/Tabs';
@@ -20,7 +21,7 @@ const Dashboard = () => {
       <NewWord />
       <Tabs />
       <DashboardChallengeTab />
-      {/* <PieChart progress={76} total={100} label={'learned'} /> */}
+      <DashboardStatsTab />
     </Container>
   );
 };

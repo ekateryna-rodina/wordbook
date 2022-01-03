@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import counterReducer from '../features/counter/counter-slice';
+import dashboardReducer from '../features/dashboard/dashboard-slice';
 import searchReducer from '../features/search/search-slice';
 import { wordBookApi } from '../services/api';
 
@@ -8,6 +9,7 @@ export const store = configureStore({
   reducer: {
     counter: counterReducer,
     search: searchReducer,
+    dashboard: dashboardReducer,
     [wordBookApi.reducerPath]: wordBookApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>

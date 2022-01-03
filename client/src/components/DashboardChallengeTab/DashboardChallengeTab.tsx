@@ -1,10 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useAppSelector } from '../../app/hooks';
 import { theme } from '../../globalStyles';
-import { ChallengeType, Icons } from '../../utils/enums';
+import { ChallengeType, DashboardTabs, Icons } from '../../utils/enums';
 import { Challenge } from '../Challenge';
 import Icon from '../Icon.style';
 
+const Container = styled.div<{ show: boolean }>`
+  display: ${({ show }) => (show ? 'block' : 'none')};
+`;
 const TitleRow = styled.div`
   display: flex;
   flex-direction: row;
@@ -21,8 +25,9 @@ const Title = styled.span`
 `;
 
 const DashboardChallengeTab = () => {
+  const isActive = useAppSelector((state) => state.dashboard.tabSelected);
   return (
-    <>
+    <Container show={isActive === DashboardTabs.Challenge}>
       <TitleRow>
         <Icon
           iconType={Icons.Problem}
@@ -37,7 +42,7 @@ const DashboardChallengeTab = () => {
         missing={['naughty']}
       ></Challenge>
       {/* <Challenge type={ChallengeType.Missing} {...props}></Challenge> */}
-    </>
+    </Container>
   );
 };
 

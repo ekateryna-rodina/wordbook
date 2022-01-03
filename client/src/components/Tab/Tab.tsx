@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { tabSelectedChanged } from '../../features/dashboard/dashboard-slice';
 import { DashboardTabs } from '../../utils/enums';
 
 const Container = styled.li<Partial<TabProps>>`
@@ -14,21 +16,26 @@ const Container = styled.li<Partial<TabProps>>`
   color: ${(props) => props.theme.colors.textPrimary};
   font-family: Quicksand, sans-serif;
   background: ${(props) =>
-    props.isActive ? props.theme.colors.primary : `white`};
+    props.isActive ? `${props.theme.colors.primary}87` : `white`};
   border-radius: 16px;
   color: ${(props) => (props.isActive ? 'white' : props.theme.colors.primary)};
 `;
 
 interface TabProps {
-  isActive: boolean;
+  isActive?: boolean;
   label: DashboardTabs;
-  onClick: any;
+  onClick?: any;
 }
-const Tab = ({ isActive, label, onClick: handler }: TabProps) => {
+const Tab = ({ label }: TabProps) => {
+  const dispatch = useAppDispatch();
+  const active = useAppSelector((state) => state.dashboard.tabSelected);
+  const tabSelectedHandler = () => {
+    dispatch(tabSelectedChanged(label));
+  };
   return (
     <Container
-      isActive={isActive}
-      onClick={handler}
+      isActive={active === label}
+      onClick={tabSelectedHandler}
       data-testid="dashboard-tab-testid"
     >
       {label.toString()[0].toUpperCase() + label.toString().slice(1)}

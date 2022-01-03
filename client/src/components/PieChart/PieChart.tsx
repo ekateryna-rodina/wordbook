@@ -2,11 +2,11 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 const Outer = styled.div`
-  --size: 4rem;
+  --size: 5rem;
   position: relative;
   width: var(--size);
   height: var(--size);
-  background: red;
+  background: ${(props) => props.theme.colors.primary};
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -26,7 +26,7 @@ const segmentCss = css`
   width: 100%;
   height: 100%;
   inset: 0;
-  background: green;
+  background: ${(props) => props.theme.colors.tertiary};
   z-index: 15;
   position: absolute;
 `;
@@ -45,7 +45,7 @@ const Overlay = styled.div<{ cover: boolean }>`
   width: 100%;
   height: 100%;
   inset: 0;
-  background: red;
+  background: ${(props) => props.theme.colors.primary};
   z-index: ${({ cover }) => (cover ? 25 : 5)};
   position: absolute;
   transform: translate(-50%, 0);
