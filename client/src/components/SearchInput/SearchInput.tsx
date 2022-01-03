@@ -19,6 +19,7 @@ const Input = styled.input`
 
   &::placeholder {
     color: rgba(0, 0, 0, 0.3);
+    font-family: Lato, sans-serif;
   }
 `;
 

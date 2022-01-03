@@ -11,7 +11,6 @@ const Container = styled.div`
   height: calc(100% - 5rem);
   padding: 1rem 1rem;
   position: relative;
-  /* z-index: 50; */
 `;
 
 const Dashboard = () => {

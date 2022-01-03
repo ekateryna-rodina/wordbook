@@ -8,7 +8,7 @@ const SearchBarButtonStyled = styled.button`
   border-radius: 10px;
   box-shadow: ${(props) => `0 3px 7px ${props.theme.colors.primary}21`};
   margin: 0.5rem;
-  &:focus {
+  &:focus-visible {
     outline: 0;
     box-shadow: ${(props) => `0 3px 7px ${props.theme.colors.primary}87`};
   }

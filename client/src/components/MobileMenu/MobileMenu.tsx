@@ -8,7 +8,7 @@ const Container = styled.div`
   position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
+  right: -1px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -24,7 +24,7 @@ const MobileMenu = () => {
   return (
     <Container>
       <svg
-        width="414"
+        width="416"
         viewBox="0 0 414 142"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
