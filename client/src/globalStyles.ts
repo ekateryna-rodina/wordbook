@@ -11,8 +11,9 @@ export const theme: DefaultTheme = {
     secondaryText: '#6283C8',
     neutral: 'rgba(0, 0, 0, .2)',
     dark: '#1A3431',
-    light: '#e8ecff',
+    light: '#e5e7ff',
     white: '#fff',
+    highlight: '#d5d5fa',
   },
 };
 
@@ -40,6 +41,16 @@ time, mark, audio, video {
 *, *::before, *::after{
   box-sizing: border-box;
   font-family: Lato, sans-serif;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+:root{
+  --title-font-size: 1.5rem;
 }
 
 body, html{
