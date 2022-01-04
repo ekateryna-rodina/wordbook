@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { ReactComponent as AcademicIcon } from '../assets/academic.svg';
 import { ReactComponent as AddToCollectionIcon } from '../assets/addToCollection.svg';
 import { ReactComponent as BackIcon } from '../assets/back.svg';
+import { ReactComponent as CloseIcon } from '../assets/close.svg';
 import { ReactComponent as CreateIcon } from '../assets/create.svg';
 import { ReactComponent as DetailsIcon } from '../assets/details.svg';
 import FavouritesIcon from '../assets/favourites.svg';
@@ -44,6 +45,7 @@ const iconTypes: Record<Icons, any> = {
   [Icons.Swipe]: SwipeIcon,
   [Icons.Search]: SearchIcon,
   [Icons.Settings]: SettingsIcon,
+  [Icons.Close]: CloseIcon,
 };
 
 const Icon: React.FC<IconProps> = ({ iconType, color, size }) => {

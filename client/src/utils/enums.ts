@@ -15,6 +15,7 @@ export enum Icons {
   Swipe = 'swipe',
   Search = 'search',
   Settings = '',
+  Close = '',
 }
 
 export enum RecordInputTypes {
