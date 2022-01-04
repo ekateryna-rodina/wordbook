@@ -4,12 +4,14 @@ export const theme: DefaultTheme = {
   colors: {
     primary: '#2B41A7',
     secondary: '#8F00FF',
-    tertiary: '#7FFFD4',
+    tertiary: '#7e93e5',
+    quaternary: '#7b95ff',
+    // tertiary: '#7FFFD4',
     primaryText: '#1A3431',
     secondaryText: '#6283C8',
     neutral: 'rgba(0, 0, 0, .2)',
     dark: '#1A3431',
-    light: '#6283C8',
+    light: '#e8ecff',
     white: '#fff',
   },
 };

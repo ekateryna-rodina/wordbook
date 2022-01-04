@@ -22,6 +22,7 @@ const Box = styled.div`
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   border: ${(props) => `1px solid ${props.theme.colors.primary}24`};
+  max-height: 40%;
 `;
 const Word = styled.div`
   padding: 0.5rem 0;

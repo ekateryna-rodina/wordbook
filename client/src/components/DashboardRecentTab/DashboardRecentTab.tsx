@@ -5,18 +5,31 @@ import { DashboardTabs } from '../../utils/enums';
 
 const SwipeHint = styled.div``;
 const RecentList = styled.ul`
-  overflow-x: auto;
+  overflow: auto;
+  display: flex;
+  flex-direction: columns;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 const Word = styled.div`
   font-weight: 600;
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.white};
   padding: 0.5rem;
   text-transform: capitalize;
   font-size: 1.5rem;
 `;
 const Example = styled.div`
   padding: 0.5rem;
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.light};
   font-style: italic;
 `;
 const Container = styled.div<{ show: boolean }>`
@@ -24,12 +37,14 @@ const Container = styled.div<{ show: boolean }>`
   height: calc(100% - 5rem);
 `;
 const RecentItemStyled = styled.li`
-  width: 10rem;
-  height: max-content;
+  min-width: 12rem;
+  height: 10rem;
   border-radius: 0.5rem;
-  display: inline-block;
-  background: ${(props) => `${props.theme.colors.primary}24`};
-  margin: 0 0.5rem;
+  background: ${(props) => props.theme.colors.quaternary};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 `;
 type RecentItemProps = {
   word: string;
@@ -46,6 +61,18 @@ const RecentItem = ({ word, example }: RecentItemProps) => {
 const DashboardRecentTab = () => {
   const activeTab = useAppSelector((state) => state.dashboard.tabSelected);
   const recent = [
+    {
+      word: 'generous',
+      example: 'He was generous with both his time and his money',
+    },
+    {
+      word: 'sizzling',
+      example: 'It’s a sizzling hot day today!',
+    },
+    {
+      word: 'soothed',
+      example: 'At once, the rhythm and scent of the ocean soothed her',
+    },
     {
       word: 'generous',
       example: 'He was generous with both his time and his money',
