@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { DashboardChallengeTab } from '../components/DashboardChallengeTab';
+import { DashboardRecentTab } from '../components/DashboardRecentTab';
 import { DashboardStatsTab } from '../components/DashboardStatsTab';
 import { NewWord } from '../components/NewWord';
 import { SearchBar } from '../components/SearchBar';
@@ -22,6 +23,7 @@ const Dashboard = () => {
       <Tabs />
       <DashboardChallengeTab />
       <DashboardStatsTab />
+      <DashboardRecentTab />
     </Container>
   );
 };
