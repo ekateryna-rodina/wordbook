@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as AcademicIcon } from '../assets/academic.svg';
+import { ReactComponent as AddIcon } from '../assets/add.svg';
 import { ReactComponent as AddToCollectionIcon } from '../assets/addToCollection.svg';
 import { ReactComponent as BackIcon } from '../assets/back.svg';
 import { ReactComponent as CloseIcon } from '../assets/close.svg';
@@ -46,6 +47,7 @@ const iconTypes: Record<Icons, any> = {
   [Icons.Search]: SearchIcon,
   [Icons.Settings]: SettingsIcon,
   [Icons.Close]: CloseIcon,
+  [Icons.Add]: AddIcon,
 };
 
 const Icon: React.FC<IconProps> = ({ iconType, color, size }) => {

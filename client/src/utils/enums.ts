@@ -16,6 +16,7 @@ export enum Icons {
   Search = 'search',
   Settings = '',
   Close = '',
+  Add = '',
 }
 
 export enum RecordInputTypes {

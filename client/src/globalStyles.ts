@@ -110,6 +110,26 @@ html, body {
   -o-border-radius: var(--border-radius);
   border-radius: var(--border-radius);
 }
+.cls-1, .cls-2 {
+        fill: #2b41a7;
+      }
+
+      .cls-1, .cls-4, .cls-5 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        stroke: #fff;
+        stroke-width: 12px;
+      }
+
+      .cls-3, .cls-5 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        fill: #f24e1e;
+      }
 `;
 
 export type Colors =
