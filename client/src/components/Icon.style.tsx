@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as AcademicIcon } from '../assets/academic.svg';
-import { ReactComponent as AddIcon } from '../assets/add.svg';
+import { ReactComponent as AddNewIcon } from '../assets/addNew.svg';
 import { ReactComponent as AddToCollectionIcon } from '../assets/addToCollection.svg';
 import { ReactComponent as BackIcon } from '../assets/back.svg';
 import { ReactComponent as CloseIcon } from '../assets/close.svg';
@@ -12,9 +12,10 @@ import { ReactComponent as GoogleIcon } from '../assets/google.svg';
 import LibraryIcon from '../assets/library.svg';
 import { ReactComponent as ListenIcon } from '../assets/listen.svg';
 import { ReactComponent as ProblemIcon } from '../assets/problem.svg';
+import { ReactComponent as ProgressBadgeIcon } from '../assets/progressBadge.svg';
 import { ReactComponent as RemoveIcon } from '../assets/remove.svg';
 import { ReactComponent as SearchIcon } from '../assets/search.svg';
-import { ReactComponent as SettingsIcon } from '../assets/settings.svg';
+import { ReactComponent as SearchSettingsIcon } from '../assets/searchSettings.svg';
 import { ReactComponent as SwipeIcon } from '../assets/swipe.svg';
 import TrainingIcon from '../assets/training.svg';
 import { ReactComponent as UserIcon } from '../assets/user.svg';
@@ -45,16 +46,25 @@ const iconTypes: Record<Icons, any> = {
   [Icons.Problem]: ProblemIcon,
   [Icons.Swipe]: SwipeIcon,
   [Icons.Search]: SearchIcon,
-  [Icons.Settings]: SettingsIcon,
+  [Icons.Settings]: SearchSettingsIcon,
   [Icons.Close]: CloseIcon,
-  [Icons.Add]: AddIcon,
+  [Icons.New]: AddNewIcon,
+  [Icons.ProgressBadge]: ProgressBadgeIcon,
 };
 
 const Icon: React.FC<IconProps> = ({ iconType, color, size }) => {
+  console.log(iconType);
   let Icn = iconTypes[iconType];
+  console.log(Icn);
   return (
     <StyledIcon>
-      <Icn width={size ?? 20} height={size ?? 20} fill={color} />
+      <Icn
+        width={size ?? 20}
+        height={size ?? 20}
+        fill={color}
+        stroke={color}
+        key={Math.random()}
+      />
     </StyledIcon>
   );
 };

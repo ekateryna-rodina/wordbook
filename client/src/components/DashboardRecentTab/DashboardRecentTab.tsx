@@ -91,7 +91,7 @@ const DashboardRecentTab = () => {
       <SwipeHint></SwipeHint>
       <RecentList>
         {recent.map((item) => (
-          <RecentItem {...item} />
+          <RecentItem {...item} key={item.word + Math.random()} />
         ))}
       </RecentList>
     </Container>

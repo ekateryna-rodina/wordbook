@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Icons } from '../../utils/enums';
-import Icon from '../Icon.style';
 
 const ModalStyled = styled.div`
   width: 100%;
@@ -17,9 +15,7 @@ const Modal: React.FC<ModalProps> = ({ children, title }) => {
   return (
     <ModalStyled>
       {children}
-      <IconContainer>
-        <Icon iconType={Icons.Close} />
-      </IconContainer>
+      <IconContainer>{/* <Icon iconType={Icons.Close} /> */}</IconContainer>
     </ModalStyled>
   );
 };

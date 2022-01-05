@@ -62,7 +62,11 @@ const ChallengeMissing = ({ sentence, missing }: ChallengeMissingProps) => {
       {sentence
         .split(' ')
         .map((w) =>
-          missing.includes(w) ? <Missing value={w} /> : <Word word={w} />
+          missing.includes(w) ? (
+            <Missing value={w + Math.random().toString()} key={w} />
+          ) : (
+            <Word word={w} key={w + Math.random().toString()} />
+          )
         )}
     </Container>
   );

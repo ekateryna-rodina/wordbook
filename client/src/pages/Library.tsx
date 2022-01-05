@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import AddButton from '../components/AddButton.style';
+import Icon from '../components/Icon.style';
+import { Icons } from '../utils/enums';
 
 const Container = styled.div`
   width: 92%;
@@ -50,8 +52,26 @@ type CollectionProps = {
   size: number;
   progress: number;
 };
+const ProgressContainer = styled.div`
+  margin-bottom: auto;
+  margin-right: auto;
+`;
+const Name = styled.span`
+  margin: auto;
+`;
+const Size = styled.span`
+  margin: auto;
+`;
 const Collection = ({ name, size, progress }: CollectionProps) => {
-  return <CollectionStyled></CollectionStyled>;
+  return (
+    <CollectionStyled>
+      <ProgressContainer>
+        <Icon iconType={Icons.ProgressBadge} color={'green'} />
+      </ProgressContainer>
+      <Name>{name}</Name>
+      <Size>{size}</Size>
+    </CollectionStyled>
+  );
 };
 const Library = () => {
   const collections = [
@@ -69,7 +89,7 @@ const Library = () => {
       </HeaderRow>
       <CollectionsContainer>
         {collections.map((c) => (
-          <Collection {...c} />
+          <Collection {...c} key={c.name} />
         ))}
       </CollectionsContainer>
       {}

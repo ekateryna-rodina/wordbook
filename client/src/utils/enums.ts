@@ -14,9 +14,10 @@ export enum Icons {
   Problem = 'problem',
   Swipe = 'swipe',
   Search = 'search',
-  Settings = '',
-  Close = '',
-  Add = '',
+  Settings = 'settings',
+  Close = 'close',
+  New = 'new',
+  ProgressBadge = 'progressBadge',
 }
 
 export enum RecordInputTypes {
