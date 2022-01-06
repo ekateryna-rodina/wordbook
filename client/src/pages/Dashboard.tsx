@@ -10,7 +10,7 @@ import { Tabs } from '../components/Tabs';
 const Container = styled.div`
   --bg: ${(props) => `${props.theme.colors.light}24`};
   width: 100%;
-  height: calc(100% - 5rem);
+  height: calc(100% - 4.1rem);
   padding: 1rem 1rem;
   position: relative;
 `;

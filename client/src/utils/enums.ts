@@ -37,3 +37,15 @@ export enum DashboardTabs {
 export enum ChallengeType {
   Missing,
 }
+
+export enum SpeechPart {
+  None,
+  Noun,
+  Pronoun,
+  Verb,
+  Adjective,
+  Adverb,
+  Preposition,
+  Conjunction,
+  Interjection,
+}

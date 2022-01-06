@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import { Menu } from './components/Menu';
+import Collection from './pages/Collection';
 import Dashboard from './pages/Dashboard';
 import Library from './pages/Library';
 import Login from './pages/Login';
@@ -27,6 +28,7 @@ function App() {
           <Route path="/library" element={<Library />} />
           <Route path="/training" element={<Training />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/collections/:id" element={<Collection />} />
         </Routes>
         <Menu />
       </Router>
