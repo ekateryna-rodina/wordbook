@@ -14,6 +14,9 @@ export const theme: DefaultTheme = {
     light: '#e5e7ff',
     white: '#fff',
     highlight: '#d5d5fa',
+    green: '#23A63A',
+    yellow: '#F2E827',
+    gray: '#6574B5',
   },
 };
 

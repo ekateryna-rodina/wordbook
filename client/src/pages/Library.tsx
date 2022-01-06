@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import AddButton from '../components/AddButton.style';
 import Icon from '../components/Icon.style';
+import { theme } from '../globalStyles';
 import { Icons } from '../utils/enums';
 
 const Container = styled.div`
@@ -46,6 +47,9 @@ const CollectionStyled = styled.div`
   border-radius: 1rem;
   background: ${(props) => props.theme.colors.light};
   box-shadow: ${(props) => `2px 2px 5px ${props.theme.colors.highlight}`};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 type CollectionProps = {
   name: string;
@@ -53,20 +57,34 @@ type CollectionProps = {
   progress: number;
 };
 const ProgressContainer = styled.div`
-  margin-bottom: auto;
-  margin-right: auto;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem;
 `;
 const Name = styled.span`
-  margin: auto;
+  margin: 0 1rem;
+  color: ${(props) => props.theme.colors.primary};
 `;
 const Size = styled.span`
-  margin: auto;
+  display: block;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem;
+  color: ${(props) => `${props.theme.colors.primary}87`};
 `;
+const progressColor = {
+  0: theme.colors.gray,
+  1: theme.colors.yellow,
+  2: theme.colors.green,
+};
 const Collection = ({ name, size, progress }: CollectionProps) => {
   return (
     <CollectionStyled>
       <ProgressContainer>
-        <Icon iconType={Icons.ProgressBadge} color={'green'} />
+        <Icon
+          iconType={Icons.ProgressBadge}
+          color={progressColor[progress as keyof typeof progressColor]}
+        />
       </ProgressContainer>
       <Name>{name}</Name>
       <Size>{size}</Size>
