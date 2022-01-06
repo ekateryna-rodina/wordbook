@@ -18,8 +18,8 @@ const HeaderRow = styled.div`
 `;
 const Word = styled.span`
   color: ${(props) => props.theme.colors.dark};
-  font-size: 1.2rem;
-  flex: 2;
+  font-size: 1.1rem;
+  flex: 3;
 `;
 const PartOfSpeech = styled.span`
   color: ${(props) => props.theme.colors.tertiary};
@@ -27,11 +27,12 @@ const PartOfSpeech = styled.span`
 `;
 const Description = styled.p`
   color: ${(props) => `${props.theme.colors.primary}87`};
-  font-size: 1rem;
+  font-size: 0.8rem;
 `;
 const Example = styled.p`
   color: ${(props) => props.theme.colors.primary};
   font-style: italic;
+  font-size: 0.8rem;
 `;
 const PartOfSpeechContainer = styled.div`
   flex: 1;

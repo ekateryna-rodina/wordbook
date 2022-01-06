@@ -9,7 +9,6 @@ const Container = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  height: 5rem;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -26,7 +25,6 @@ const MobileMenu = () => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="1725"
-        height="388"
         viewBox="0 0 1725 388"
       >
         <path
