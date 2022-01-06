@@ -19,6 +19,10 @@ export enum Icons {
   New = 'new',
   ProgressBadge = 'progressBadge',
   Idiom = 'idiom',
+  HeartFull = 'heartFull',
+  HeartEmpty = 'heartEmpty',
+  Microphone = 'microphone',
+  Enter = 'enter',
 }
 
 export enum RecordInputTypes {

@@ -7,11 +7,15 @@ import { ReactComponent as BackIcon } from '../assets/back.svg';
 import { ReactComponent as CloseIcon } from '../assets/close.svg';
 import { ReactComponent as CreateIcon } from '../assets/create.svg';
 import { ReactComponent as DetailsIcon } from '../assets/details.svg';
+import { ReactComponent as EnterIcon } from '../assets/enter.svg';
 import FavouritesIcon from '../assets/favourites.svg';
 import { ReactComponent as GoogleIcon } from '../assets/google.svg';
+import { ReactComponent as HeartEmptyIcon } from '../assets/heartEmpty.svg';
+import { ReactComponent as HeartFullIcon } from '../assets/heartFull.svg';
 import { ReactComponent as IdiomIcon } from '../assets/idiom.svg';
 import LibraryIcon from '../assets/library.svg';
 import { ReactComponent as ListenIcon } from '../assets/listen.svg';
+import { ReactComponent as MicrophoneIcon } from '../assets/microphone.svg';
 import { ReactComponent as ProblemIcon } from '../assets/problem.svg';
 import { ReactComponent as ProgressBadgeIcon } from '../assets/progressBadge.svg';
 import { ReactComponent as RemoveIcon } from '../assets/remove.svg';
@@ -52,6 +56,10 @@ const iconTypes: Record<Icons, any> = {
   [Icons.New]: AddNewIcon,
   [Icons.ProgressBadge]: ProgressBadgeIcon,
   [Icons.Idiom]: IdiomIcon,
+  [Icons.HeartFull]: HeartFullIcon,
+  [Icons.HeartEmpty]: HeartEmptyIcon,
+  [Icons.Microphone]: MicrophoneIcon,
+  [Icons.Enter]: EnterIcon,
 };
 
 const Icon: React.FC<IconProps> = ({ iconType, color, size }) => {

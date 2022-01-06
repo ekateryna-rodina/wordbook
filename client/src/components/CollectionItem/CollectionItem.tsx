@@ -8,7 +8,8 @@ const Container = styled.div`
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   border: ${(props) => `1px solid ${props.theme.colors.primary}24`};
-  position: relative;
+  display: flex;
+  flex-direction: column;
 `;
 const HeaderRow = styled.div`
   display: flex;
@@ -23,7 +24,8 @@ const Word = styled.span`
 `;
 const PartOfSpeech = styled.span`
   color: ${(props) => props.theme.colors.tertiary};
-  font-size: 1rem;
+  font-size: 0.8rem;
+  margin-top: 2px;
 `;
 const Description = styled.p`
   color: ${(props) => `${props.theme.colors.primary}87`};
@@ -34,11 +36,26 @@ const Example = styled.p`
   font-style: italic;
   font-size: 0.8rem;
 `;
-const PartOfSpeechContainer = styled.div`
-  flex: 1;
-  align-self: flex-start;
+
+const IconsContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+`;
+const DetailsIconContainer = styled.div`
+  margin-left: auto;
+`;
+const MicrophoneIconContainer = styled.div`
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: ${(props) => props.theme.colors.highlight};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 type CollectionItemProps = {
   isIdiom: boolean;
@@ -70,19 +87,33 @@ const CollectionItem = ({
     <Container>
       <HeaderRow>
         <Word>{`${word[0].toUpperCase()}${word.slice(1)}`}</Word>
-        <PartOfSpeechContainer>
-          {partOfSpeach !== SpeechPart.None && <PartOfSpeech></PartOfSpeech>}
-          {isIdiom && (
-            <Icon
-              iconType={Icons.Idiom}
-              size={20}
-              color={theme.colors.tertiary}
-            />
-          )}
-        </PartOfSpeechContainer>
+
+        {partOfSpeach !== SpeechPart.None && (
+          <PartOfSpeech>{SpeechPart[partOfSpeach]}</PartOfSpeech>
+        )}
+        {isIdiom && (
+          <Icon
+            iconType={Icons.Idiom}
+            size={20}
+            color={theme.colors.tertiary}
+          />
+        )}
       </HeaderRow>
       <Description>{description}</Description>
       <Example>"{examples[0]}"</Example>
+      <IconsContainer>
+        <Icon iconType={Icons.Listen} color={theme.colors.gray} />
+        <MicrophoneIconContainer>
+          <Icon iconType={Icons.Microphone} color={theme.colors.gray} />
+        </MicrophoneIconContainer>
+        <Icon
+          iconType={isFavorite ? Icons.HeartFull : Icons.HeartEmpty}
+          color={theme.colors.red}
+        />
+        <DetailsIconContainer>
+          <Icon iconType={Icons.Enter} color={theme.colors.gray} />
+        </DetailsIconContainer>
+      </IconsContainer>
     </Container>
   );
 };

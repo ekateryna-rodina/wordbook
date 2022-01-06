@@ -16,6 +16,7 @@ export const theme: DefaultTheme = {
     green: '#23A63A',
     yellow: '#F2E827',
     gray: '#6574B5',
+    red: '#A63C4F',
   },
 };
 
@@ -37,7 +38,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 *, *::before, *::after{

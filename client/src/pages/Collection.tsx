@@ -52,7 +52,7 @@ const Collection = () => {
       ],
       tags: ['idiom', 'mood'],
       collectionId: 1,
-      isFavorite: true,
+      isFavorite: false,
     },
     {
       isIdiom: true,
