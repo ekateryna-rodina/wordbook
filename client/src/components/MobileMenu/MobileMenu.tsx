@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { theme } from '../../globalStyles';
 import { respondTo } from '../../utils/_respondTo';
 
 const Container = styled.div`
@@ -15,12 +17,10 @@ const Container = styled.div`
   font-family: Lato, sans-serif;
   ${respondTo.laptopAndDesktop`
     display: none;
-`}/* ${respondTo.mobileXS`
-  bottom: -.5rem;
-`} */
+`}
 `;
 const MobileMenu = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState<0 | 1 | 2 | 3>(0);
   return (
     <Container>
       <svg
@@ -31,205 +31,95 @@ const MobileMenu = () => {
       >
         <path
           id="Bar"
-          className="cls-1"
+          fill-rule="evenodd"
+          fill="#2b41a7"
           d="M994,388H731m263,0h731V213A130,130,0,0,0,1595,83H1124c-87.36,0-130,113-130,113s-32.587,88-131,88-132-87-132-87S685.448,83,601,83H130A130,130,0,0,0,0,213V388H731"
         />
         <circle
           id="Center_Button"
           data-name="Center Button"
-          className="cls-2"
+          stroke-width="12px"
+          stroke="white"
+          fill="#2b41a7"
           cx="863"
           cy="138"
           r="125"
         />
-        <circle
-          id="Button_1"
-          data-name="Button 1"
-          className="cls-3"
-          cx="145"
-          cy="225"
-          r="105"
-        />
-        <circle
-          id="Button_2"
-          data-name="Button 2"
-          className="cls-3"
-          cx="588"
-          cy="225"
-          r="105"
-        />
-        <circle
-          id="Button_3"
-          data-name="Button 3"
-          className="cls-3"
-          cx="1136.72"
-          cy="225"
-          r="105"
-        />
-        <circle
-          id="Button_4"
-          data-name="Button 4"
-          className="cls-3"
-          cx="1579.72"
-          cy="225"
-          r="105"
-        />
+        <Link to="/" data-testid="dashboard-link-testid">
+          <circle
+            id="Button_1"
+            data-name="Button 1"
+            fill="#fff"
+            cx="145"
+            cy="225"
+            r="105"
+            onClick={() => setActiveTab(0)}
+          />
+        </Link>
+        <Link to="/library" data-testid="dashboard-link-testid">
+          <circle
+            id="Button_2"
+            data-name="Button 2"
+            fill="#fff"
+            cx="588"
+            cy="225"
+            r="105"
+            onClick={() => setActiveTab(1)}
+          />
+        </Link>
+        <Link to="/training" data-testid="dashboard-link-testid">
+          <circle
+            id="Button_3"
+            data-name="Button 3"
+            fill="#fff"
+            cx="1136.72"
+            cy="225"
+            r="105"
+            onClick={() => setActiveTab(2)}
+          />
+        </Link>
+        <Link to="/settings" data-testid="dashboard-link-testid">
+          <circle
+            id="Button_4"
+            data-name="Button 4"
+            fill="#fff"
+            cx="1579.72"
+            cy="225"
+            r="105"
+            onClick={() => setActiveTab(3)}
+          />
+        </Link>
         <path
           id="House"
-          className="cls-4"
+          fill={activeTab === 0 ? theme.colors.secondary : theme.colors.primary}
+          fill-rule="evenodd"
           d="M100,212l44-35,40,32s7,5.09,7,16v34s0.283,12-11,12H107s-10-.215-10-11V223S96.241,216.448,100,212Zm8,48V220l35-29,37,30v40H154V239H133v21H108Z"
         />
         <path
           id="Folder"
-          className="cls-1"
+          fill={activeTab === 1 ? theme.colors.secondary : theme.colors.primary}
+          fill-rule="evenodd"
           d="M531,271V186l4-4h41l7,7h54l4,5v27h-9v-8H583l-9,8H539v46h39v9H535Zm54,5V228h9v48h-9Zm16-48v48h8V228h-8Zm15,3,8-3,17,45-9,3Zm-77-41v23h33l8-8h52v-8H580l-8-7H539Z"
         />
         <path
           id="Head"
-          className="cls-1"
+          fill={activeTab === 2 ? theme.colors.secondary : theme.colors.primary}
+          fill-rule="evenodd"
           d="M1099,249s-13-12.232-13-34,20.49-45,46-45,46,20.3,46,45c3.38,6.446,12,21,12,21s3.26,6.648-3,8-9,2-9,2v14s-0.77,3.508-8,3-16-2-16-2l-1,12a7.434,7.434,0,0,1-7,5h-36s-4.15,1.537-6-7S1099,249,1099,249Zm14,21h31l2-14s0.03-6.63,8-5,16,3,16,3V244s-1.46-5.643,3-6a46.7,46.7,0,0,0,7-1l-11-19v-5s0.54-32.028-37-34c-37.54,0-37,36.565-37,38s-0.37,18.04,13,27C1109.19,251.619,1113,270,1113,270Zm15-18v-6s0.13-2.955,4-3c5-.058,5,3,5,3v6s-0.19,3-5,3A4.159,4.159,0,0,1,1128,252Zm-13-39v-5s1.37-13.588,17-14,18,15.039,18,17-1.23,14.752-13,17v6s-0.53,3-5,3-4-4-4-4V222a7.024,7.024,0,0,1,5-2c3.21,0,8-4.223,8-9s-3.82-8-9-8-8,6-8,6v4a5.047,5.047,0,0,1-5,3C1115.04,216,1115,213,1115,213Z"
         />
         <path
           id="Gear"
-          className="cls-1"
+          fill={activeTab === 3 ? theme.colors.secondary : theme.colors.primary}
+          fill-rule="evenodd"
           d="M1567,165h27s3,0.78,3,5v12s0.31,2.188,3,0,9-8,9-8a4.256,4.256,0,0,1,6,0c3.05,2.882,16,16,16,16s2.29,2.188-1,6-8,9-8,9-2.14,3,1,3h13s4,0.061,4,5v24s0.18,4-5,4h-13s-2.47.751,0,3,9,8,9,8,2.6,3.454-1,7-15,15-15,15-3.27,3.86-6,1-9-9-9-9-3-2.227-3,1v14s0.97,3-6,3h-22s-5,.171-5-4V268s-1.07-4.145-3-2-9,9-9,9-3.4,2.826-7-1-15-15-15-15-2.81-4.686,1-8,8-7,8-7,1.49-3-2-3h-12s-4,.014-4-6V212s-0.59-4,5-4h11s4.46-.441,2-3-9-10-9-10a4.88,4.88,0,0,1,1-6c2.92-2.868,15-16,15-16s3.19-3.048,7,1,7,8,7,8,4,2.686,4-2V169S1563.27,164.915,1567,165Zm6,9h15v11s-0.1,2.8,2,4,8,4,8,4,3.89,1.454,6-1,8-8,8-8l9,9-9,8s-2.44,2.87-1,6,4,8,4,8a12.475,12.475,0,0,0,6,2h10v15h-11s-3.53-.911-5,2-3,7-3,7-2.32,4.013,1,7,8,7,8,7l-9,9-9-8s-2.36-2.382-5-1-8,4-8,4a8.3,8.3,0,0,0-3,7c0.18,4.767,0,9,0,9h-13V263s-0.57-3.089-5-5-9.98-4.6-13-1a69.61,69.61,0,0,1-7,7l-9-9,8-7s3.93-3.508,0-11-10-6-10-6h-7V218h10s2.34,1.113,5-4,3-7,3-7,2.74-2.518-1-6-7-7-7-7-1.22-.993,2-4,3-3,3-3,1.52-4.066,5-1,7,6,7,6a6.891,6.891,0,0,0,7,0c4.01-2.1,6-3,6-3s2-.283,2-5V174Zm7.5,30a20.5,20.5,0,1,1-20.5,20.5A20.5,20.5,0,0,1,1580.5,204Zm0,10a10.5,10.5,0,1,1-10.5,10.5A10.5,10.5,0,0,1,1580.5,214Z"
         />
         <path
           id="Plus"
-          className="cls-5"
+          fill="white"
+          fill-rule="evenodd"
           d="M855,131V91s-0.288-6,7-6,6,6,6,6v40h39s7-1.274,7,7-6,7-6,7H868v41s0.1,4-7,4-6-5-6-5V145H815s-6,0-6-8,7-6,7-6h39Z"
         />
       </svg>
-      {/* <svg
-        width="416"
-        viewBox="0 0 414 142"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <rect y="74" width="414" height="136" rx="32" fill="#2B41A7" />
-        <circle cx="207" cy="88" r="34" fill="white" />
-        <Link to="/" data-testid="dashboard-link-testid">
-          <circle
-            cx="35"
-            cy="108"
-            r="25"
-            fill="white"
-            onClick={() => setActiveTab(0)}
-          />
-        </Link>
-
-        <path
-          d="M 144 102.5 V 67 L 160 67 L 182.5 67 L 175 81.5 V 96 L 166 102.5 H 144 Z"
-          fill="white"
-          stroke="white"
-        />
-        <circle cx="145" cy="104" r="30" fill="#2B41A7" />
-        <path
-          d="M269 66V99L239 92.5V85L233.5 66H269Z"
-          fill="white"
-          stroke="white"
-        />
-        <Link to="/library" data-testid="library-link-testid">
-          <circle
-            cx="141"
-            cy="108"
-            r="25"
-            fill="white"
-            onClick={() => setActiveTab(1)}
-          />
-        </Link>
-        <circle cx="269" cy="104" r="30" fill="#2B41A7" />
-        <Link to="/training" data-testid="training-link-testid">
-          <circle
-            cx="273"
-            cy="108"
-            r="25"
-            fill="white"
-            onClick={() => setActiveTab(2)}
-          />
-        </Link>
-        <Link to="/settings" data-testid="settings-link-testid">
-          <circle
-            cx="375"
-            cy="108"
-            r="25"
-            fill="white"
-            onClick={() => setActiveTab(3)}
-          />
-        </Link>
-        <circle cx="207" cy="87" r="30" fill="#2B41A7" />
-        <path
-          d="M35 99.9512L26.25 106.951V116.75H32.5V111.75H37.5V116.75H43.75V107.553C43.7501 107.365 43.708 107.18 43.6268 107.011C43.5457 106.842 43.4276 106.693 43.2812 106.576L35 99.9512ZM35 96.75L44.8425 104.625C45.2814 104.976 45.6358 105.421 45.8794 105.928C46.123 106.434 46.2497 106.989 46.25 107.551V116.75C46.25 117.413 45.9866 118.049 45.5178 118.518C45.0489 118.987 44.413 119.25 43.75 119.25H26.25C25.587 119.25 24.9511 118.987 24.4822 118.518C24.0134 118.049 23.75 117.413 23.75 116.75V106.951C23.75 106.577 23.8343 106.207 23.9966 105.869C24.1589 105.531 24.395 105.234 24.6875 105L35 96.75Z"
-          fill={activeTab === 0 ? theme.colors.secondary : theme.colors.primary}
-        />
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M140.456 99.625H153.187L154.144 100.562V107.125H152.25V105.231H140.419L138.806 106.844L138.15 107.125H129.731V118.375H139.125V120.25H128.831L127.894 119.312V98.6875L128.831 97.75H138.206L138.862 98.0313L140.456 99.625V99.625ZM140.044 103.375H152.231L152.25 101.519H140.062L139.387 101.237L137.794 99.6437H129.75V105.269H137.775L139.387 103.656L140.044 103.375V103.375Z"
-          fill={activeTab === 1 ? theme.colors.secondary : theme.colors.primary}
-        />
-        <path
-          d="M141 109H142.875V120.25H141V109Z"
-          fill={activeTab === 1 ? theme.colors.secondary : theme.colors.primary}
-        />
-        <path
-          d="M144.75 109H146.625V120.25H144.75V109Z"
-          fill={activeTab === 1 ? theme.colors.secondary : theme.colors.primary}
-        />
-        <path
-          d="M148.507 109.66L150.27 109.019L154.117 119.59L152.355 120.231L148.507 109.66Z"
-          fill={activeTab === 1 ? theme.colors.secondary : theme.colors.primary}
-        />
-        <path
-          d="M206.5 75C206.914 75 207.312 75.1646 207.605 75.4576C207.898 75.7507 208.062 76.1481 208.062 76.5625V85.9375H217.438C217.852 85.9375 218.249 86.1021 218.542 86.3951C218.835 86.6882 219 87.0856 219 87.5C219 87.9144 218.835 88.3118 218.542 88.6049C218.249 88.8979 217.852 89.0625 217.438 89.0625H208.062V98.4375C208.062 98.8519 207.898 99.2493 207.605 99.5424C207.312 99.8354 206.914 100 206.5 100C206.086 100 205.688 99.8354 205.395 99.5424C205.102 99.2493 204.938 98.8519 204.938 98.4375V89.0625H195.562C195.148 89.0625 194.751 88.8979 194.458 88.6049C194.165 88.3118 194 87.9144 194 87.5C194 87.0856 194.165 86.6882 194.458 86.3951C194.751 86.1021 195.148 85.9375 195.562 85.9375H204.938V76.5625C204.938 76.1481 205.102 75.7507 205.395 75.4576C205.688 75.1646 206.086 75 206.5 75V75Z"
-          fill="white"
-        />
-        <path
-          d="M281.75 106.125L284.875 111.75L281.75 112.375V116.125H279.875L276.125 115.5L275.5 119.875H266.125L264.875 113.387C262.95 111.564 261.75 108.985 261.75 106.125C261.75 100.602 266.227 96.125 271.75 96.125C277.273 96.125 281.75 100.602 281.75 106.125Z"
-          stroke={
-            activeTab === 2 ? theme.colors.secondary : theme.colors.primary
-          }
-          strokeWidth="2.08333"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M268.625 104.875C268.625 104.257 268.808 103.653 269.152 103.139C269.495 102.625 269.983 102.224 270.554 101.988C271.125 101.751 271.753 101.689 272.36 101.81C272.966 101.931 273.523 102.228 273.96 102.665C274.397 103.102 274.694 103.659 274.815 104.265C274.936 104.872 274.874 105.5 274.637 106.071C274.401 106.642 274 107.13 273.486 107.473C272.972 107.817 272.368 108 271.75 108V109.875"
-          stroke={
-            activeTab === 2 ? theme.colors.secondary : theme.colors.primary
-          }
-          strokeWidth="2.08333"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M271.75 113.625V114.25"
-          stroke={
-            activeTab === 3 ? theme.colors.secondary : theme.colors.primary
-          }
-          strokeWidth="2.08333"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M372.188 94.875V98.625L370.312 99.5625L367.5 96.75L363.75 100.5L366.562 103.312L365.625 105.188H361.875V110.812H365.625L366.562 112.688L363.75 115.5L367.5 119.25L370.312 116.438L372.188 117.375V121.125H377.812V117.375L379.688 116.438L382.5 119.25L386.25 115.5L383.438 112.688L384.375 110.812H388.125V105.188H384.375L383.438 103.312L386.25 100.5L382.5 96.75L379.688 99.5625L377.812 98.625V94.875H372.188Z"
-          stroke={
-            activeTab === 3 ? theme.colors.secondary : theme.colors.primary
-          }
-          strokeWidth="2.1875"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M375 111.75C377.071 111.75 378.75 110.071 378.75 108C378.75 105.929 377.071 104.25 375 104.25C372.929 104.25 371.25 105.929 371.25 108C371.25 110.071 372.929 111.75 375 111.75Z"
-          stroke={
-            activeTab === 3 ? theme.colors.secondary : theme.colors.primary
-          }
-          strokeWidth="2.1875"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg> */}
     </Container>
   );
 };
