@@ -18,6 +18,7 @@ export enum Icons {
   Close = 'close',
   New = 'new',
   ProgressBadge = 'progressBadge',
+  Idiom = 'idiom',
 }
 
 export enum RecordInputTypes {

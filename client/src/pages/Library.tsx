@@ -23,7 +23,7 @@ const CollectionsContainer = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
   justify-items: center;
   gap: 1rem;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   padding: 1rem 0.5rem;
 
   overflow: auto;

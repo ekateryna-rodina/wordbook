@@ -9,6 +9,7 @@ import { ReactComponent as CreateIcon } from '../assets/create.svg';
 import { ReactComponent as DetailsIcon } from '../assets/details.svg';
 import FavouritesIcon from '../assets/favourites.svg';
 import { ReactComponent as GoogleIcon } from '../assets/google.svg';
+import { ReactComponent as IdiomIcon } from '../assets/idiom.svg';
 import LibraryIcon from '../assets/library.svg';
 import { ReactComponent as ListenIcon } from '../assets/listen.svg';
 import { ReactComponent as ProblemIcon } from '../assets/problem.svg';
@@ -50,6 +51,7 @@ const iconTypes: Record<Icons, any> = {
   [Icons.Close]: CloseIcon,
   [Icons.New]: AddNewIcon,
   [Icons.ProgressBadge]: ProgressBadgeIcon,
+  [Icons.Idiom]: IdiomIcon,
 };
 
 const Icon: React.FC<IconProps> = ({ iconType, color, size }) => {
