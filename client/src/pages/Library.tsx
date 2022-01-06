@@ -93,6 +93,7 @@ const Collection = ({ name, size, progress }: CollectionProps) => {
 };
 const Library = () => {
   const collections = [
+    { name: 'All', size: 122, progress: 2 },
     { name: 'Personality traits', size: 22, progress: 0 },
     { name: 'Business writing', size: 10, progress: 1 },
     { name: 'Top 100 verbs', size: 100, progress: 2 },

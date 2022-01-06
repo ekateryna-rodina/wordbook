@@ -22,14 +22,14 @@ const RecentList = styled.ul`
 `;
 const Word = styled.div`
   font-weight: 600;
-  color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.primary};
   padding: 0.5rem;
   text-transform: capitalize;
   font-size: 1.5rem;
 `;
 const Example = styled.div`
   padding: 0.5rem;
-  color: ${(props) => props.theme.colors.light};
+  color: ${(props) => props.theme.colors.primary};
   font-style: italic;
 `;
 const Container = styled.div<{ show: boolean }>`
@@ -40,7 +40,8 @@ const RecentItemStyled = styled.li`
   min-width: 12rem;
   height: 10rem;
   border-radius: 0.5rem;
-  background: ${(props) => props.theme.colors.quaternary};
+  background: ${(props) =>
+    `linear-gradient(to bottom, ${props.theme.colors.light}87, ${props.theme.colors.highlight}87)`};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
