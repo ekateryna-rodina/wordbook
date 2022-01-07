@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useAppSelector } from '../../app/hooks';
 
 const Container = styled.div`
   margin: 1rem 0 0 0;
@@ -30,15 +31,13 @@ const Container = styled.div`
 const Label = styled.span`
   margin-right: auto;
 `;
-type ProgressBarProps = {
-  total: number;
-  passed: number;
-};
-const ProgressBar = ({ total, passed }: ProgressBarProps) => {
+
+const ProgressBar = () => {
+  const { totalCards, passed } = useAppSelector((state) => state.training);
   return (
     <Container>
-      <Label>{`${passed} of ${total}`}</Label>
-      <progress max={total} value={passed}></progress>
+      <Label>{`${passed} of ${totalCards}`}</Label>
+      <progress max={totalCards} value={passed}></progress>
     </Container>
   );
 };

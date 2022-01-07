@@ -32,7 +32,7 @@ const Training = () => {
         </BackButton>
         <Header>Training</Header>
       </HeaderRow>
-      <ProgressBar total={10} passed={3} />
+      <ProgressBar />
     </Container>
   );
 };
