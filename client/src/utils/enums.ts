@@ -25,6 +25,8 @@ export enum Icons {
   Enter = 'enter',
   Sos = 'sos',
   QuestionMark = 'questionMark',
+  Play = 'play',
+  Next = 'next',
 }
 
 export enum RecordInputTypes {

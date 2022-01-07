@@ -16,6 +16,8 @@ import { ReactComponent as IdiomIcon } from '../assets/idiom.svg';
 import LibraryIcon from '../assets/library.svg';
 import { ReactComponent as ListenIcon } from '../assets/listen.svg';
 import { ReactComponent as MicrophoneIcon } from '../assets/microphone.svg';
+import { ReactComponent as NextIcon } from '../assets/next.svg';
+import { ReactComponent as PlayIcon } from '../assets/play.svg';
 import { ReactComponent as ProblemIcon } from '../assets/problem.svg';
 import { ReactComponent as ProgressBadgeIcon } from '../assets/progressBadge.svg';
 import { ReactComponent as QuestionMarkIcon } from '../assets/questionMark.svg';
@@ -36,6 +38,7 @@ type IconProps = {
   iconType: Icons;
   color?: string;
   size?: number;
+  fill?: boolean;
 };
 const iconTypes: Record<Icons, any> = {
   [Icons.Library]: LibraryIcon,
@@ -64,16 +67,18 @@ const iconTypes: Record<Icons, any> = {
   [Icons.Enter]: EnterIcon,
   [Icons.Sos]: SosIcon,
   [Icons.QuestionMark]: QuestionMarkIcon,
+  [Icons.Play]: PlayIcon,
+  [Icons.Next]: NextIcon,
 };
 
-const Icon: React.FC<IconProps> = ({ iconType, color, size }) => {
+const Icon: React.FC<IconProps> = ({ iconType, color, size, fill = true }) => {
   let Icn = iconTypes[iconType];
   return (
     <StyledIcon>
       <Icn
         width={size ?? 20}
         height={size ?? 20}
-        fill={color}
+        fill={fill ? color : 'none'}
         stroke={color}
         key={Math.random()}
       />

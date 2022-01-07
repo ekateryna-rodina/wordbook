@@ -25,6 +25,10 @@ const AnswerInput = styled.input`
   border-bottom: ${(props) => `2px solid ${props.theme.colors.primary}`};
   width: calc(100% - 4rem);
   margin: 2rem;
+
+  &:focus {
+    outline: none;
+  }
 `;
 const QuestionDetails = styled.div`
   text-transform: uppercase;
@@ -50,7 +54,7 @@ const Question = () => {
         />
         <QuestionDescription>{questionTypeDescription}</QuestionDescription>
       </QuestionDescriptionContainer>
-      <QuestionDetails>{question}</QuestionDetails>
+      <QuestionDetails>{question}?</QuestionDetails>
       <AnswerInput type="text"></AnswerInput>
     </>
   );
