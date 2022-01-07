@@ -23,6 +23,8 @@ export enum Icons {
   HeartEmpty = 'heartEmpty',
   Microphone = 'microphone',
   Enter = 'enter',
+  Sos = 'sos',
+  QuestionMark = 'questionMark',
 }
 
 export enum RecordInputTypes {
@@ -41,6 +43,11 @@ export enum DashboardTabs {
 
 export enum ChallengeType {
   Missing,
+  Synonym,
+  Antonym,
+  Order,
+  Dictation,
+  Pronunciation,
 }
 
 export enum SpeechPart {

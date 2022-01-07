@@ -33,7 +33,9 @@ const Label = styled.span`
 `;
 
 const ProgressBar = () => {
-  const { totalCards, passed } = useAppSelector((state) => state.training);
+  const {
+    progress: { totalCards, passed },
+  } = useAppSelector((state) => state.training);
   return (
     <Container>
       <Label>{`${passed} of ${totalCards}`}</Label>
