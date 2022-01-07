@@ -144,7 +144,6 @@ const TagsInput = () => {
     handleEnter(e);
   };
   const removeTagHandler = (tag: string) => {
-    console.log(tag);
     if (!tag.length) return;
     const newSelectedTags = selectedTags.filter(
       (t) => Object.keys(t)[0] !== tag

@@ -63,9 +63,7 @@ const iconTypes: Record<Icons, any> = {
 };
 
 const Icon: React.FC<IconProps> = ({ iconType, color, size }) => {
-  console.log(iconType);
   let Icn = iconTypes[iconType];
-  console.log(Icn);
   return (
     <StyledIcon>
       <Icn

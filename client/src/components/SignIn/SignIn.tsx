@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { object, string, TypeOf } from 'zod';
 import { useCreateSessionMutation } from '../../services/api';
@@ -23,9 +23,6 @@ const SignIn = () => {
   const signInHandler = (values: CreateSessionSchema) => {
     signIn(values);
   };
-  useEffect(() => {
-    console.log(isLoading, data, error);
-  }, [data, error, isLoading]);
   return (
     <form onSubmit={handleSubmit(signInHandler)}>
       <span>{(error as any)?.message}</span>

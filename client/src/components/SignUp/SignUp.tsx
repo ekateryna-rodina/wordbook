@@ -34,7 +34,6 @@ const SignUp = () => {
   const [signUp, { isLoading, data, error }] = useCreateUserMutation();
 
   const signUpHandler = (values: CreateUserSchema) => {
-    console.log(values);
     signUp(values);
   };
 
