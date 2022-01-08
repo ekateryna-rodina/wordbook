@@ -52,6 +52,11 @@ export enum ChallengeType {
   Pronunciation,
 }
 
+export enum ScreenMode {
+  Dark,
+  Light,
+}
+
 export enum SpeechPart {
   None,
   Noun,
