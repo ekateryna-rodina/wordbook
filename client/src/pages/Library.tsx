@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import AddButton from '../components/AddButton.style';
 import Icon from '../components/Icon.style';
+import { Menu } from '../components/Menu';
 import { theme } from '../globalStyles';
 import { Icons } from '../utils/enums';
 
@@ -88,6 +89,7 @@ const Collection = ({ name, size, progress }: CollectionProps) => {
       </ProgressContainer>
       <Name>{name}</Name>
       <Size>{size}</Size>
+      <Menu />
     </CollectionStyled>
   );
 };

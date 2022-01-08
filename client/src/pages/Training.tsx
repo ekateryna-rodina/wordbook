@@ -8,7 +8,7 @@ import { Icons } from '../utils/enums';
 
 const Container = styled.div`
   width: 100%;
-  height: calc(100% - 4.1rem);
+  height: 100%;
   padding: 1.5rem 1rem 1rem 1rem;
   background: white;
 `;
@@ -40,7 +40,7 @@ const ControlsContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 80%;
-  margin: 1rem auto;
+  margin: 1rem auto 0 auto;
   gap: 1rem;
 `;
 const buttonStyle = css`
@@ -53,11 +53,12 @@ const buttonStyle = css`
 `;
 const Sos = styled.button`
   ${buttonStyle};
-  width: 2.1rem;
-  height: 2.1rem;
+  padding: 0.5em;
   background: ${(props) => props.theme.colors.white};
-  border: ${(props) => `1px solid ${props.theme.colors.primary}`};
+  border: ${(props) => `1px solid ${props.theme.colors.primary}87`};
+  color: ${(props) => props.theme.colors.dark};
   border-radius: 0.5rem;
+  font-size: 0.8rem;
 `;
 const Check = styled.button`
   ${buttonStyle};
@@ -87,9 +88,7 @@ const Training = () => {
         <Question />
       </QuestionContainer>
       <ControlsContainer>
-        <Sos>
-          <Icon iconType={Icons.Sos} size={25} color={theme.colors.primary} />
-        </Sos>
+        <Sos>Hint</Sos>
         <Check>
           <Icon iconType={Icons.Play} color={'white'} size={35} />
         </Check>

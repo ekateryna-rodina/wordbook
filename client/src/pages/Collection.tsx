@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { CollectionItem } from '../components/CollectionItem';
 import Icon from '../components/Icon.style';
+import { Menu } from '../components/Menu';
 import { SearchBar } from '../components/SearchBar';
 import { theme } from '../globalStyles';
 import { Icons, SpeechPart } from '../utils/enums';
@@ -174,6 +175,7 @@ const Collection = () => {
           <CollectionItem {...ci} />
         ))}
       </CollectionItemsContainer>
+      <Menu />
     </Container>
   );
 };

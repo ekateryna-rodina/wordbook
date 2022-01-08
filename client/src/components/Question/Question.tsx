@@ -1,10 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useAppSelector } from '../../app/hooks';
-import { theme } from '../../globalStyles';
-import { Icons } from '../../utils/enums';
 import useQuestionDetails from '../../utils/hooks/useQuestionDetails';
-import Icon from '../Icon.style';
 
 const QuestionDescriptionContainer = styled.div`
   display: flex;
@@ -31,6 +28,7 @@ const AnswerInput = styled.input`
   }
 `;
 const QuestionDetails = styled.div`
+  margin-top: 0.5rem;
   text-transform: uppercase;
   color: ${(props) => props.theme.colors.dark};
   font-weight: 600;
@@ -47,11 +45,6 @@ const Question = () => {
   return (
     <>
       <QuestionDescriptionContainer>
-        <Icon
-          iconType={Icons.QuestionMark}
-          size={40}
-          color={theme.colors.secondary}
-        />
         <QuestionDescription>{questionTypeDescription}</QuestionDescription>
       </QuestionDescriptionContainer>
       <QuestionDetails>{question}?</QuestionDetails>

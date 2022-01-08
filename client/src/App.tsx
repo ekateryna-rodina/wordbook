@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
-import { Menu } from './components/Menu';
 import Collection from './pages/Collection';
 import Dashboard from './pages/Dashboard';
 import Library from './pages/Library';
@@ -17,6 +16,8 @@ const Container = styled.div`
   height: 100%;
 `;
 function App() {
+  // const location = useLocation();
+  // const withoutNav = ['training'];
   return (
     <Container>
       <Router>
@@ -30,7 +31,6 @@ function App() {
           <Route path="/settings" element={<Settings />} />
           <Route path="/collections/:id" element={<Collection />} />
         </Routes>
-        <Menu />
       </Router>
     </Container>
   );
