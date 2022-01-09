@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Icon from '../components/Icon.style';
 import { Menu } from '../components/Menu';
+import { ScreenModeSwitcher } from '../components/ScreenModeSwitcher';
 import { theme } from '../globalStyles';
 import { Icons } from '../utils/enums';
 
@@ -32,6 +33,7 @@ const Settings = () => {
         </BackButton>
         <Header>Settings</Header>
       </HeaderRow>
+      <ScreenModeSwitcher />
       <Menu />
     </Container>
   );

@@ -27,6 +27,8 @@ export enum Icons {
   QuestionMark = 'questionMark',
   Play = 'play',
   Next = 'next',
+  Moon = 'moon',
+  Sun = 'sun',
 }
 
 export enum RecordInputTypes {
