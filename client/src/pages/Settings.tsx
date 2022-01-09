@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Icon from '../components/Icon.style';
 import { Menu } from '../components/Menu';
+import { NotificationsIntervalSelector } from '../components/NotificationsIntervalSelector';
 import { ScreenModeSwitcher } from '../components/ScreenModeSwitcher';
 import { theme } from '../globalStyles';
 import { Icons } from '../utils/enums';
@@ -24,6 +25,16 @@ const Header = styled.div`
   font-size: 1.2rem;
   color: ${(props) => props.theme.colors.primary};
 `;
+const Label = styled.label`
+  color: ${(props) => props.theme.colors.dark};
+`;
+const SettingContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
+`;
 const Settings = () => {
   return (
     <Container>
@@ -33,7 +44,14 @@ const Settings = () => {
         </BackButton>
         <Header>Settings</Header>
       </HeaderRow>
-      <ScreenModeSwitcher />
+      <SettingContainer>
+        <Label>Screen mode:</Label>
+        <ScreenModeSwitcher />
+      </SettingContainer>
+      <SettingContainer>
+        <Label>Notifications interval:</Label>
+        <NotificationsIntervalSelector />
+      </SettingContainer>
       <Menu />
     </Container>
   );
