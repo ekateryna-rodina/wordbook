@@ -8,7 +8,7 @@ interface SettingsState {
 
 const initialState: SettingsState = {
   mode: ScreenMode.Light,
-  notificationsInterval: 60,
+  notificationsInterval: 30,
 };
 
 const settingsSlice = createSlice({
