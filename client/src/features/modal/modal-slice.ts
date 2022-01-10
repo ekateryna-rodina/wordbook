@@ -1,25 +1,30 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ModalType } from '../../utils/enums';
 
 interface ModalState {
   isOpened: boolean;
-  title: string;
+  type: ModalType;
 }
 
 const initialState: ModalState = {
   isOpened: false,
-  title: '',
+  type: ModalType.None,
 };
 
 const modalSlice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
-    openModal(state, action: PayloadAction<string>) {
+    openModal(state, action: PayloadAction<ModalType>) {
       state.isOpened = true;
-      state.title = action.payload;
+      state.type = action.payload;
+    },
+    closeModal(state) {
+      state.isOpened = false;
+      state.type = ModalType.None;
     },
   },
 });
 
-export const { openModal } = modalSlice.actions;
+export const { openModal, closeModal } = modalSlice.actions;
 export default modalSlice.reducer;

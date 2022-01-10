@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
+import { CreateRecord } from './components/CreateRecord';
 import Collection from './pages/Collection';
 import Dashboard from './pages/Dashboard';
 import Library from './pages/Library';
@@ -32,6 +33,7 @@ function App() {
           <Route path="/collections/:id" element={<Collection />} />
         </Routes>
       </Router>
+      <CreateRecord />
     </Container>
   );
 }

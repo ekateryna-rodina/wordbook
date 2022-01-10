@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
+import { useAppSelector } from '../../app/hooks';
 import { useCreateRecordMutation } from '../../services/api';
-import { RecordInputTypes } from '../../utils/enums';
-import { Input } from '../Input';
-import { SetSelector } from '../SetSelector';
-import { TagsInput } from '../TagsInput';
-import { Textarea } from '../Textarea';
+import { ModalType } from '../../utils/enums';
+import { Modal } from '../Modal';
 
 const Container = styled.div<{ show: boolean }>`
   height: 100vh;
@@ -51,7 +49,8 @@ const Form = styled.form`
   width: 100%;
   height: 100%;
 `;
-const CreateRecord = ({ show }: { show: boolean }) => {
+const CreateRecord = () => {
+  const { isOpened, type } = useAppSelector((state) => state.modal);
   const [record, setRecord] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const [tags, setTags] = useState<string[]>([]);
@@ -71,25 +70,31 @@ const CreateRecord = ({ show }: { show: boolean }) => {
   };
 
   return (
-    <Container show={show}>
-      <InnerContainer>
-        <Form onSubmit={createRecordHandler}>
-          <Textarea name={RecordInputTypes.Word} />
-          <Textarea name={RecordInputTypes.Hint} />
-          <Textarea name={RecordInputTypes.Example} />
-          <SetSelector />
-          <TagsInputContainer>
-            <TagsInput />
-          </TagsInputContainer>
-          <Input name={RecordInputTypes.Transcription} />
-          <input
-            style={{ position: 'absolute', bottom: 0, right: 0 }}
-            type="submit"
-            value="Add to my vocabulary"
-          />
-        </Form>
-      </InnerContainer>
-    </Container>
+    <Modal
+      isOpened={isOpened && type === ModalType.New}
+      title="Create New Record"
+    >
+      {/* <WordInput /> */}
+    </Modal>
+    // <Container show={show}>
+    //   <InnerContainer>
+    //     <Form onSubmit={createRecordHandler}>
+    //       <Textarea type={RecordInputTypes.Word} />
+    //       <Textarea type={RecordInputTypes.Hint} />
+    //       <Textarea type={RecordInputTypes.Example} />
+    //       <SetSelector />
+    //       <TagsInputContainer>
+    //         <TagsInput />
+    //       </TagsInputContainer>
+    //       <Input name={RecordInputTypes.Transcription} />
+    //       <input
+    //         style={{ position: 'absolute', bottom: 0, right: 0 }}
+    //         type="submit"
+    //         value="Add to my vocabulary"
+    //       />
+    //     </Form>
+    //   </InnerContainer>
+    // </Container>
   );
 };
 

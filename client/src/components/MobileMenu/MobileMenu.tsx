@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useAppDispatch } from '../../app/hooks';
+import { openModal } from '../../features/modal/modal-slice';
 import { theme } from '../../globalStyles';
+import { ModalType } from '../../utils/enums';
 import { respondTo } from '../../utils/_respondTo';
 
 const Container = styled.div`
@@ -20,6 +23,10 @@ const Container = styled.div`
 `;
 const MobileMenu = () => {
   const [activeTab, setActiveTab] = useState<0 | 1 | 2 | 3>(0);
+  const dispatch = useAppDispatch();
+  const createNewHandler = () => {
+    dispatch(openModal(ModalType.New));
+  };
   return (
     <Container>
       <svg
@@ -39,6 +46,8 @@ const MobileMenu = () => {
           strokeWidth="12px"
           stroke="white"
           fill="#2b41a7"
+          onClick={createNewHandler}
+          onKeyDown={createNewHandler}
           cx="863"
           cy="138"
           r="125"
@@ -115,6 +124,7 @@ const MobileMenu = () => {
           id="Plus"
           fill="white"
           fillRule="evenodd"
+          style={{ pointerEvents: 'none' }}
           d="M855,131V91s-0.288-6,7-6,6,6,6,6v40h39s7-1.274,7,7-6,7-6,7H868v41s0.1,4-7,4-6-5-6-5V145H815s-6,0-6-8,7-6,7-6h39Z"
         />
       </svg>

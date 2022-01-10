@@ -28,17 +28,17 @@ const TextareaStyled = styled.textarea`
 `;
 
 type TextareaProps = {
-  name: RecordInputTypes;
+  type: RecordInputTypes;
 };
 
-const Textarea = ({ name }: TextareaProps) => {
+const Textarea = ({ type }: TextareaProps) => {
   return (
     <Container>
-      <Label htmlFor={name}>{name.toString()}</Label>
+      <Label htmlFor={type}>{type.toString()}</Label>
       <TextareaStyled
         required
-        id={name}
-        data-testid={`${name}-testid`}
+        id={type}
+        data-testid={`${type}-testid`}
       ></TextareaStyled>
     </Container>
   );

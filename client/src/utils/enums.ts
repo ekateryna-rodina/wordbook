@@ -45,6 +45,11 @@ export enum DashboardTabs {
   Recent = 'recent',
 }
 
+export enum ModalType {
+  None,
+  New,
+}
+
 export enum ChallengeType {
   Missing,
   Synonym,
