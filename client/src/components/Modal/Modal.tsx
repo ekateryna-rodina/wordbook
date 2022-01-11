@@ -16,9 +16,6 @@ const ModalStyled = styled.div<{ show: boolean }>`
   padding: 1.5rem 1rem 1rem 1rem;
   z-index: 200;
 `;
-const IconContainer = styled.div`
-  margin: 0 0 auto auto;
-`;
 
 const HeaderRow = styled.div`
   display: flex;
@@ -29,6 +26,7 @@ const HeaderRow = styled.div`
 const CloseButton = styled.button`
   border: none;
   background: white;
+  padding: 0;
 `;
 const Header = styled.div`
   font-size: 1.2rem;

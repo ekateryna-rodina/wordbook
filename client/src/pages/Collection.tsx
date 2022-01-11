@@ -40,10 +40,10 @@ const CollectionItemsContainer = styled.div<{ top: boolean }>`
   grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
   justify-items: center;
   gap: 1rem;
+  padding-top: ${({ top }) => (top ? '3rem' : 0)};
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  padding-top: ${({ top }) => (top ? '3rem' : 0)};
   &::-webkit-scrollbar {
     display: none;
   }

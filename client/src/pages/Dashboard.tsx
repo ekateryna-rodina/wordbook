@@ -4,6 +4,7 @@ import { DashboardChallengeTab } from '../components/DashboardChallengeTab';
 import { DashboardRecentTab } from '../components/DashboardRecentTab';
 import { DashboardStatsTab } from '../components/DashboardStatsTab';
 import { Menu } from '../components/Menu';
+// import { Menu } from '../components/Menu';
 import { NewWord } from '../components/NewWord';
 import { SearchBar } from '../components/SearchBar';
 import { Tabs } from '../components/Tabs';

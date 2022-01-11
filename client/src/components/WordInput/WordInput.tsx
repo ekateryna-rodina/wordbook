@@ -1,9 +1,8 @@
 import React from 'react';
-import { RecordInputTypes } from '../../utils/enums';
-import { Textarea } from '../Textarea';
+import { TextareaWithHighlight } from '../TextareaWithHighlight';
 
 const WordInput = () => {
-  return <Textarea type={RecordInputTypes.Word} />;
+  return <TextareaWithHighlight label="word or phrase" />;
 };
 
 export default WordInput;

@@ -4,6 +4,7 @@ import { useAppSelector } from '../../app/hooks';
 import { useCreateRecordMutation } from '../../services/api';
 import { ModalType } from '../../utils/enums';
 import { Modal } from '../Modal';
+import { WordInput } from '../WordInput';
 
 const Container = styled.div<{ show: boolean }>`
   height: 100vh;
@@ -74,7 +75,8 @@ const CreateRecord = () => {
       isOpened={isOpened && type === ModalType.New}
       title="Create New Record"
     >
-      {/* <WordInput /> */}
+      <Label></Label>
+      <WordInput />
     </Modal>
     // <Container show={show}>
     //   <InnerContainer>

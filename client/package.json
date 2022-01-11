@@ -13,6 +13,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-redux": "^7.1.20",
+    "draft-js": "^0.11.7",
     "install": "^0.13.0",
     "jest-styled-components": "^7.0.8",
     "npm": "^8.1.4",
