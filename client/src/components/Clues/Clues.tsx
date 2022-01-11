@@ -26,7 +26,7 @@ type ClueProps = {
   text: string;
 };
 const Clue = ({ text }: ClueProps) => {
-  return <Card>{text}</Card>;
+  return <Card inViewport={true}>{text}</Card>;
 };
 const Clues = () => {
   const { word, clues, examples, partOfSpeech, transcription } = useAppSelector(

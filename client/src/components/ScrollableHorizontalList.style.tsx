@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const List = styled.ul<{ height: string }>`
-  height: ${({ height }) => height}:;
+  height: ${({ height }) => height};
   overflow: auto;
   display: flex;
   flex-direction: columns;
