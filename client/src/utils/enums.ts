@@ -29,11 +29,12 @@ export enum Icons {
   Next = 'next',
   Moon = 'moon',
   Sun = 'sun',
+  Attention = 'attention',
 }
 
 export enum RecordInputTypes {
   Word = 'Word or phrase',
-  Hint = 'Hint to memorize',
+  Clue = 'Clue',
   Example = 'Examples',
   Transcription = 'Transcription',
   SpeechPart = 'Part of speech',
@@ -74,4 +75,9 @@ export enum SpeechPart {
   Preposition,
   Conjunction,
   Interjection,
+}
+
+export enum AddButtonSize {
+  Small,
+  Large,
 }

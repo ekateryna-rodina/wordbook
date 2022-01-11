@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { ReactComponent as AcademicIcon } from '../assets/academic.svg';
 import { ReactComponent as AddNewIcon } from '../assets/addNew.svg';
 import { ReactComponent as AddToCollectionIcon } from '../assets/addToCollection.svg';
+import { ReactComponent as AttentionIcon } from '../assets/attention.svg';
 import { ReactComponent as BackIcon } from '../assets/back.svg';
 import { ReactComponent as CloseIcon } from '../assets/close.svg';
 import { ReactComponent as CreateIcon } from '../assets/create.svg';
@@ -73,6 +74,7 @@ const iconTypes: Record<Icons, any> = {
   [Icons.Next]: NextIcon,
   [Icons.Moon]: MoonIcon,
   [Icons.Sun]: SunIcon,
+  [Icons.Attention]: AttentionIcon,
 };
 
 const Icon: React.FC<IconProps> = ({ iconType, color, size, fill = true }) => {

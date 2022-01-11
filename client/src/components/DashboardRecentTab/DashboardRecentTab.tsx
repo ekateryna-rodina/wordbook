@@ -2,24 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { useAppSelector } from '../../app/hooks';
 import { DashboardTabs } from '../../utils/enums';
+import Card from '../Card.style';
+import ScrollableHorizontalList from '../ScrollableHorizontalList.style';
 
 const SwipeHint = styled.div``;
-const RecentList = styled.ul`
-  overflow: auto;
-  display: flex;
-  flex-direction: columns;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0.5rem;
-  margin: 0;
-  padding: 0;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`;
 const Word = styled.div`
   font-weight: 600;
   color: ${(props) => props.theme.colors.primary};
@@ -36,27 +23,17 @@ const Container = styled.div<{ show: boolean }>`
   display: ${({ show }) => (show ? 'block' : 'none')};
   height: calc(100% - 5rem);
 `;
-const RecentItemStyled = styled.li`
-  min-width: 12rem;
-  height: 10rem;
-  border-radius: 0.5rem;
-  background: ${(props) =>
-    `linear-gradient(to bottom, ${props.theme.colors.light}87, ${props.theme.colors.highlight}87)`};
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-`;
+
 type RecentItemProps = {
   word: string;
   example: string;
 };
 const RecentItem = ({ word, example }: RecentItemProps) => {
   return (
-    <RecentItemStyled>
+    <Card>
       <Example>{example}</Example>
       <Word>{word}</Word>
-    </RecentItemStyled>
+    </Card>
   );
 };
 const DashboardRecentTab = () => {
@@ -90,11 +67,11 @@ const DashboardRecentTab = () => {
   return (
     <Container show={activeTab === DashboardTabs.Recent}>
       <SwipeHint></SwipeHint>
-      <RecentList>
+      <ScrollableHorizontalList height={'10%'}>
         {recent.map((item) => (
           <RecentItem {...item} key={item.word + Math.random()} />
         ))}
-      </RecentList>
+      </ScrollableHorizontalList>
     </Container>
   );
 };

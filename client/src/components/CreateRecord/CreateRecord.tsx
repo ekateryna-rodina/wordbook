@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { useAppSelector } from '../../app/hooks';
 import { useCreateRecordMutation } from '../../services/api';
 import { ModalType } from '../../utils/enums';
+import { Clues } from '../Clues';
 import { Modal } from '../Modal';
 import { WordInput } from '../WordInput';
 
@@ -42,7 +43,7 @@ const RecordInput = styled.textarea`
   ${TextAreaStyle};
   border: ${(props) => `1px solid ${props.theme.colors.primary}`};
 `;
-const HintInput = styled.textarea`
+const ClueInput = styled.textarea`
   ${TextAreaStyle};
   border: ${(props) => `1px solid ${props.theme.colors.neutral}`};
 `;
@@ -75,8 +76,8 @@ const CreateRecord = () => {
       isOpened={isOpened && type === ModalType.New}
       title="Create New Record"
     >
-      <Label></Label>
       <WordInput />
+      <Clues />
     </Modal>
     // <Container show={show}>
     //   <InnerContainer>

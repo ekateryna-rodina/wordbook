@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
+import { Attention } from '../Attention';
 
 const TextareaWithHighlightStyled = styled.div`
-  margin: .5rem 0 1rem 0;
+  margin: 1rem 0 1rem 0;
   & .container {
     position: relative;
     border: ${(props) => `1px solid ${props.theme.colors.primary}21`};
@@ -137,6 +138,7 @@ const TextareaWithHighlight = ({ label }: TextareaWithHighlightProps) => {
           onChange={inputHandler}
         />
       </div>
+      <Attention />
     </TextareaWithHighlightStyled>
   );
 };

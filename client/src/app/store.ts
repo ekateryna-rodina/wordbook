@@ -5,7 +5,8 @@ import dashboardReducer from '../features/dashboard/dashboard-slice';
 import modalReducer from '../features/modal/modal-slice';
 import searchReducer from '../features/search/search-slice';
 import settingsReducer from '../features/settings/settings-slice';
-import trainingReducer from '../features/training/training-slice';
+import { default as suggestionsReducer } from '../features/suggestions/suggestions-slice';
+import { default as trainingReducer } from '../features/training/training-slice';
 import { wordBookApi } from '../services/api';
 
 export const store = configureStore({
@@ -16,6 +17,7 @@ export const store = configureStore({
     modal: modalReducer,
     training: trainingReducer,
     settings: settingsReducer,
+    suggestions: suggestionsReducer,
     [wordBookApi.reducerPath]: wordBookApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
