@@ -61,6 +61,7 @@ type ClueProps = {
   text?: string;
   isInput: boolean;
   slipLeft?: boolean;
+  setAddClue: any;
 };
 
 const renderCardContent = (isInput: boolean, ref: any, text?: string) => {
@@ -73,7 +74,7 @@ const renderCardContent = (isInput: boolean, ref: any, text?: string) => {
   );
 };
 const Clue = React.forwardRef((props: ClueProps, ref: any) => {
-  const { text, isInput, slipLeft = true } = props;
+  const { text, isInput, setAddClue, slipLeft = true } = props;
   // const [ref, inView] = useInView({
   //   rootMargin: '0% -50% 0% -50%',
   //   threshold: 0,
@@ -81,7 +82,7 @@ const Clue = React.forwardRef((props: ClueProps, ref: any) => {
   return (
     <Card isWide={true} background={'transparent'} slipLeft={slipLeft}>
       {renderCardContent(isInput, ref, text)}
-      <RemoveButton>
+      <RemoveButton onClick={() => setAddClue(false)}>
         <Icon iconType={Icons.Minus} />
       </RemoveButton>
     </Card>
@@ -110,13 +111,19 @@ const Clues = () => {
         <AddButton size={AddButtonSize.Small} onClickHandler={onAddHandler} />
       </HeaderRow>
       <ScrollableHorizontalList height="6.5rem">
-        <Clue isInput={true} slipLeft={!addClue} ref={refDiv} />
+        <Clue
+          isInput={true}
+          slipLeft={!addClue}
+          ref={refDiv}
+          setAddClue={setAddClue}
+        />
         {clues.map((clue, i) => (
           <Clue
             text={clue}
             isInput={false}
             slipLeft={!addClue}
             key={clue + i}
+            setAddClue={setAddClue}
           />
         ))}
       </ScrollableHorizontalList>
