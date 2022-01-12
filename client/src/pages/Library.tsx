@@ -106,7 +106,7 @@ const Library = () => {
     <Container>
       <HeaderRow>
         <Title>your collections</Title>
-        <AddButton />
+        <AddButton onClickHandler={() => null} />
       </HeaderRow>
       <CollectionsContainer>
         {collections.map((c) => (

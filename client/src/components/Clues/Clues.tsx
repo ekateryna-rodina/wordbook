@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { useInView } from 'react-hook-inview';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { useAppSelector } from '../../app/hooks';
 import { AddButtonSize, Icons, RecordInputTypes } from '../../utils/enums';
@@ -39,9 +38,6 @@ const NumberOfClues = styled.div`
   margin-right: 0.5rem;
 `;
 
-const ClueContainer = styled.div`
-  height: 100%;
-`;
 const Text = styled.p`
   margin: 0.5em 0 0.5em 0;
 `;
@@ -64,52 +60,64 @@ const RemoveButton = styled.button`
 type ClueProps = {
   text?: string;
   isInput: boolean;
+  slipLeft?: boolean;
 };
 
-const renderCardContent = (isInput: boolean, text?: string) => {
+const renderCardContent = (isInput: boolean, ref: any, text?: string) => {
   return isInput ? (
     <TextareaContainer>
-      <Textarea type={RecordInputTypes.Clue} />
+      <Textarea type={RecordInputTypes.Clue} ref={ref} />
     </TextareaContainer>
   ) : (
     <Text>{text}</Text>
   );
 };
-const Clue = ({ text, isInput }: ClueProps) => {
-  // card: isWide,
-  // user adds a card - new  card with area appears
-  // applies just to clue component
-  //  iswide applies to a card
-  const [ref, inView] = useInView({
-    rootMargin: '0% -50% 0% -50%',
-    threshold: 0,
-  });
+const Clue = React.forwardRef((props: ClueProps, ref: any) => {
+  const { text, isInput, slipLeft = true } = props;
+  // const [ref, inView] = useInView({
+  //   rootMargin: '0% -50% 0% -50%',
+  //   threshold: 0,
+  // });
   return (
-    <Card isWide={true} background={'transparent'}>
-      {renderCardContent(isInput, text)}
+    <Card isWide={true} background={'transparent'} slipLeft={slipLeft}>
+      {renderCardContent(isInput, ref, text)}
       <RemoveButton>
         <Icon iconType={Icons.Minus} />
       </RemoveButton>
     </Card>
   );
-};
+});
 const Clues = () => {
   const { word, clues, examples, partOfSpeech, transcription } = useAppSelector(
     (state) => state.suggestions
   );
   const [addClue, setAddClue] = useState(false);
-  useEffect(() => {}, [addClue]);
+  const refDiv = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!addClue) return;
+    if (refDiv?.current) {
+      refDiv?.current.focus();
+    }
+  }, [addClue]);
+  const onAddHandler = () => {
+    setAddClue(true);
+  };
   return (
     <Container>
       <HeaderRow>
         <Label>Clues</Label>
         <NumberOfClues>3</NumberOfClues>
-        <AddButton size={AddButtonSize.Small} />
+        <AddButton size={AddButtonSize.Small} onClickHandler={onAddHandler} />
       </HeaderRow>
       <ScrollableHorizontalList height="6.5rem">
-        <Clue isInput={true} />
-        {clues.map((clue) => (
-          <Clue text={clue} isInput={false} />
+        <Clue isInput={true} slipLeft={!addClue} ref={refDiv} />
+        {clues.map((clue, i) => (
+          <Clue
+            text={clue}
+            isInput={false}
+            slipLeft={!addClue}
+            key={clue + i}
+          />
         ))}
       </ScrollableHorizontalList>
     </Container>

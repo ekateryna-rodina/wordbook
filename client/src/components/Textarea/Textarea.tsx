@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { RecordInputTypes } from '../../utils/enums';
 
-const TextareaStyled = styled.textarea`
+const TextareaStyled = styled.textarea.attrs((props: any) => ({
+  ref: props.ref,
+}))`
   border: none;
   background: transparent;
   font-size: 0.8rem;
@@ -19,14 +21,16 @@ type TextareaProps = {
   type: RecordInputTypes;
 };
 
-const Textarea = ({ type }: TextareaProps) => {
+const Textarea = React.forwardRef((props: TextareaProps, ref) => {
+  const { type } = props;
   return (
     <TextareaStyled
       required
       id={type}
       data-testid={`${type}-testid`}
+      ref={ref}
     ></TextareaStyled>
   );
-};
+});
 
 export default Textarea;

@@ -12,7 +12,9 @@ const IconSize = {
   [AddButtonSize.Small]: 10,
   [AddButtonSize.Large]: 15,
 };
-const AddContainerStyled = styled.div<AddButtonProps>`
+const AddContainerStyled = styled.button.attrs((props: AddButtonProps) => ({
+  onClick: props.onClickHandler,
+}))<AddButtonProps>`
   --size: ${({ size }) => ButtonSize[size ?? AddButtonSize.Large]};
   width: var(--size);
   height: var(--size);
@@ -24,14 +26,19 @@ const AddContainerStyled = styled.div<AddButtonProps>`
   align-items: center;
   outline-offset: 0.2rem;
   outline: ${(props) => `1px dashed ${props.theme.colors.highlight}`};
+  border: 0;
 `;
 
 type AddButtonProps = {
   size?: AddButtonSize;
+  onClickHandler: () => void;
 };
-const AddButton = ({ size = AddButtonSize.Large }: AddButtonProps) => {
+const AddButton = ({
+  size = AddButtonSize.Large,
+  onClickHandler,
+}: AddButtonProps) => {
   return (
-    <AddContainerStyled size={size}>
+    <AddContainerStyled size={size} onClickHandler={onClickHandler}>
       <Icon
         iconType={Icons.New}
         color={theme.colors.primary}

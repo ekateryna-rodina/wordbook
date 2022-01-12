@@ -13,6 +13,9 @@ const Container = styled.div<CardProps>`
   box-shadow: ${(props) => `0 3px 7px ${props.theme.colors.primary}21`};
   padding: 0.5rem;
   box-sizing: padding-box;
+  transition: transform 0.5s ease-in-out;
+  transform: ${({ slipLeft }) =>
+    slipLeft ? 'translateX(calc(-105%))' : 'translateX(0)'};
 
   & > div {
     width: ${({ isWide }) => (isWide ? `calc(100vw - 3rem)` : 'max-content')};
@@ -26,14 +29,16 @@ const Content = styled.div`
 type CardProps = {
   background?: string;
   isWide?: boolean;
+  slipLeft?: boolean;
 };
 const Card: React.FC<CardProps> = ({
   children,
   background,
+  slipLeft = true,
   isWide = false,
 }) => {
   return (
-    <Container isWide={isWide} background={background}>
+    <Container isWide={isWide} background={background} slipLeft={slipLeft}>
       <Content>{children}</Content>
     </Container>
   );
