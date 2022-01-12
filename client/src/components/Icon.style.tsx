@@ -17,6 +17,7 @@ import { ReactComponent as IdiomIcon } from '../assets/idiom.svg';
 import LibraryIcon from '../assets/library.svg';
 import { ReactComponent as ListenIcon } from '../assets/listen.svg';
 import { ReactComponent as MicrophoneIcon } from '../assets/microphone.svg';
+import { ReactComponent as MinusIcon } from '../assets/minus.svg';
 import { ReactComponent as MoonIcon } from '../assets/moon.svg';
 import { ReactComponent as NextIcon } from '../assets/next.svg';
 import { ReactComponent as PlayIcon } from '../assets/play.svg';
@@ -75,6 +76,7 @@ const iconTypes: Record<Icons, any> = {
   [Icons.Moon]: MoonIcon,
   [Icons.Sun]: SunIcon,
   [Icons.Attention]: AttentionIcon,
+  [Icons.Minus]: MinusIcon,
 };
 
 const Icon: React.FC<IconProps> = ({ iconType, color, size, fill = true }) => {

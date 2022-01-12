@@ -1,36 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Container = styled.li<{ inViewport: boolean }>`
-  height: 80%;
-  /* overflow: hidden; */
+const Container = styled.div<CardProps>`
+  height: 95%;
   display: inline-block;
   border-radius: 0.5rem;
-  background: ${(props) => `${props.theme.colors.light}55`};
+  background: ${(props) => props.background ?? `${props.theme.colors.light}55`};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  transform: ${({ inViewport }) =>
-    inViewport ? 'scale(1.1) translateY(-10%)' : 'scale(.9) translateY(0)'};
-  box-shadow: ${(props) =>
-    props.inViewport
-      ? `0 9px 15px ${props.theme.colors.primary}21`
-      : `0 3px 7px ${props.theme.colors.primary}21`};
+  box-shadow: ${(props) => `0 3px 7px ${props.theme.colors.primary}21`};
+  padding: 0.5rem;
+  box-sizing: padding-box;
+
+  & > div {
+    width: ${({ isWide }) => (isWide ? `calc(100vw - 3rem)` : 'max-content')};
+    max-width: ${({ isWide }) => (isWide ? `20rem` : '10rem')};
+  }
 `;
 const Content = styled.div`
-  max-width: 10rem;
-  width: max-content;
   height: 100%;
   hyphens: auto;
-  overflow: hidden;
 `;
 type CardProps = {
-  inViewport: boolean;
+  background?: string;
+  isWide?: boolean;
 };
-const Card: React.FC<CardProps> = ({ children, inViewport }) => {
+const Card: React.FC<CardProps> = ({
+  children,
+  background,
+  isWide = false,
+}) => {
   return (
-    <Container inViewport={inViewport}>
+    <Container isWide={isWide} background={background}>
       <Content>{children}</Content>
     </Container>
   );

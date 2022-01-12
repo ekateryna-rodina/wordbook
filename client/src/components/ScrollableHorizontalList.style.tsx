@@ -1,21 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const List = styled.ul<{ height: string }>`
+const List = styled.div<{ height: string }>`
+  overflow-y: auto;
+  -webkit-scroll-snap-type: x mandatory;
+  scroll-snap-type: x mandatory;
   height: ${({ height }) => height};
-  overflow: auto;
   display: flex;
   flex-direction: columns;
   justify-content: flex-start;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
   margin: 0;
-  padding: 0;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  padding: 0.25rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  & > div {
+    scroll-snap-align: center;
+    -webkit-scroll-snap-align: center;
   }
 `;
 const ScrollableHorizontalList: React.FC<{ height: string }> = ({

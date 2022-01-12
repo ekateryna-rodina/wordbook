@@ -13,10 +13,12 @@ const Container = styled.div`
   --bg: ${(props) => `${props.theme.colors.light}24`};
   width: 100%;
   height: calc(100% - 4.1rem);
-  padding: 1rem;
   position: relative;
+  padding: 1rem;
 `;
-
+const WithPadding = styled.div`
+  padding: 1rem 1rem 0 1rem;
+`;
 const Dashboard = () => {
   return (
     <Container>

@@ -10,7 +10,11 @@ interface SuggestionsState {
 
 const initialState: SuggestionsState = {
   word: 'dexterity',
-  clues: ['skill in performing tasks, expecially with hands'],
+  clues: [
+    'skill in performing tasks, expecially with hands',
+    'skill in performing tasks, expecially with hands',
+    'skill in performing tasks, expecially with hands',
+  ],
   examples: [
     'His dexterity was amazing',
     'In his operations he was remarkable for his skill and dexterity, and for his great readiness of resource.',

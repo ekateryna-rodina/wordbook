@@ -1,5 +1,4 @@
 import React from 'react';
-import { useInView } from 'react-hook-inview';
 import styled from 'styled-components';
 import { useAppSelector } from '../../app/hooks';
 import { DashboardTabs } from '../../utils/enums';
@@ -41,17 +40,14 @@ const recent = [
 const Word = styled.div`
   font-weight: 600;
   color: ${(props) => props.theme.colors.primary};
-  padding: 0.5rem;
   text-transform: capitalize;
   font-size: clamp(1rem, 2vw, 1.2rem);
 `;
 const Example = styled.div`
-  padding: 0.5rem 0.5rem 0 0.5rem;
   color: ${(props) => props.theme.colors.dark};
   font-style: italic;
   font-size: 0.9rem;
   display: -webkit-box;
-  /* max-width: 100%; */
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -68,27 +64,19 @@ const Content = styled.div`
   align-items: flex-start;
   height: 100%;
 `;
-const CardContainer = styled.div`
-  height: 80%;
-`;
+
 type RecentItemProps = {
   word: string;
   example: string;
 };
 const RecentItem = ({ word, example }: RecentItemProps) => {
-  const [ref, inView] = useInView({
-    rootMargin: '0% -50% 0% -50%',
-    threshold: 0,
-  });
   return (
-    <CardContainer ref={ref}>
-      <Card inViewport={inView}>
-        <Content>
-          <Example>{example}</Example>
-          <Word>{word}</Word>
-        </Content>
-      </Card>
-    </CardContainer>
+    <Card>
+      <Content>
+        <Example>{example}</Example>
+        <Word>{word}</Word>
+      </Content>
+    </Card>
   );
 };
 const DashboardRecentTab = () => {

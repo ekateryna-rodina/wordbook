@@ -22,14 +22,13 @@ const Box = styled.div`
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   border: ${(props) => `1px solid ${props.theme.colors.primary}24`};
-  max-height: 40%;
 `;
 const Word = styled.div`
   padding: 0.5rem 0;
   color: ${(props) => props.theme.colors.secondary};
   font-weight: 600;
   letter-spacing: 0.1rem;
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 1.2rem, 1.5rem);
   width: max-content;
   border-radius: 0.5rem;
 `;
@@ -43,16 +42,18 @@ const Transcription = styled.span`
   padding: 0.1rem;
 `;
 const SpeechPart = styled.span`
-  color: ${(props) => props.theme.colors.tertiary};
+  color: rgba(0, 0, 0, 0.3);
 `;
 
 const Description = styled.p`
-  line-height: 1.5rem;
+  line-height: 1.2rem;
+  font-size: clamp(0.9rem, 1rem, 1.1rem);
 `;
 
 const Example = styled.p`
   color: ${(props) => props.theme.colors.primary};
   font-style: italic;
+  font-size: clamp(0.9rem, 1rem, 1.1rem);
 `;
 const IconsContainer = styled.div`
   padding: 0.5rem 0;

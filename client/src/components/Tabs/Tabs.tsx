@@ -4,7 +4,7 @@ import { DashboardTabs } from '../../utils/enums';
 import { Tab } from '../Tab';
 
 const Container = styled.ul`
-  margin: 1rem 0;
+  margin: 1rem 0 0 0;
   padding: 0;
   /* border-bottom: 1px solid #ccc; */
   width: 100%;

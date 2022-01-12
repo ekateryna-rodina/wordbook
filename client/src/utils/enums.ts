@@ -30,6 +30,7 @@ export enum Icons {
   Moon = 'moon',
   Sun = 'sun',
   Attention = 'attention',
+  Minus = 'minus',
 }
 
 export enum RecordInputTypes {
@@ -41,6 +42,7 @@ export enum RecordInputTypes {
 }
 
 export enum DashboardTabs {
+  NewWords = 'newWords',
   Challenge = 'challenge',
   Stats = 'stats',
   Recent = 'recent',
